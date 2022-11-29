@@ -39,6 +39,7 @@ Class Project2.PizzaMenu: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   Methods:
     isBtn(String): PrivateScope, Public, HideBySig
     createCustomBtns(): PrivateScope, Public, HideBySig
+    makePizza(String): PrivateScope, Public, HideBySig
 Class Project2.Menu1: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

@@ -143,7 +143,8 @@ namespace Project2 {
 			this->food_name_param->Name = L"food_name_param";
 			this->food_name_param->Size = System::Drawing::Size(121, 16);
 			this->food_name_param->TabIndex = 5;
-			this->food_name_param->Text = L"Food Name param";
+			//this->food_name_param->Text = L"Food Name param";
+			this->food_name_param->Text = name;
 			// 
 			// description_param
 			// 
@@ -152,7 +153,8 @@ namespace Project2 {
 			this->description_param->Name = L"description_param";
 			this->description_param->Size = System::Drawing::Size(220, 68);
 			this->description_param->TabIndex = 6;
-			this->description_param->Text = L"nien";
+			//this->description_param->Text = L"nien";
+			this->description_param->Text = des;
 			this->description_param->Click += gcnew System::EventHandler(this, &Description::description_param_Click);
 			// 
 			// ingredient_param
@@ -162,7 +164,8 @@ namespace Project2 {
 			this->ingredient_param->Name = L"ingredient_param";
 			this->ingredient_param->Size = System::Drawing::Size(115, 16);
 			this->ingredient_param->TabIndex = 7;
-			this->ingredient_param->Text = L"Food Ingre Param";
+			//this->ingredient_param->Text = L"Food Ingre Param";
+			this->ingredient_param->Text = ingre;
 			// 
 			// price_param
 			// 
@@ -171,7 +174,8 @@ namespace Project2 {
 			this->price_param->Name = L"price_param";
 			this->price_param->Size = System::Drawing::Size(79, 16);
 			this->price_param->TabIndex = 8;
-			this->price_param->Text = L"price param";
+			//this->price_param->Text = L"price param";
+			this->price_param->Text = System::Convert::ToString(cost);
 			// 
 			// Description
 			// 

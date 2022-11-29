@@ -5,11 +5,11 @@
 #include "Receipt.h"
 #include "Description.h"
 #include <vector>
-
-struct Item {
-	std::string img, description;
-	int x, y;
-};
+#include "data.h"
+//struct Item {
+//	std::string img, description;
+//	int x, y;
+//};
 
 namespace Project2 {
 
@@ -33,6 +33,11 @@ namespace Project2 {
 	private: System::Windows::Forms::Button^ btn2;
 	private: System::Windows::Forms::Button^ btn3;
 	private: System::Windows::Forms::Button^ btn4;
+	private: System::Windows::Forms::Button^ supremeBtn;
+	private: System::Windows::Forms::Button^ prawnBtn;
+	private: System::Windows::Forms::Button^ meatLoverBtn;
+	private: System::Windows::Forms::Button^ kaleBtn;
+
 
 	public:
 
@@ -61,25 +66,9 @@ namespace Project2 {
 		}
 
 		void createCustomBtns() {
-			std::vector<Item> items = {
-				{
-					"supremeBtn.BackgroundImage", 
-					"Hot on the heels of pepperoni is Supreme, THE pizza I grew up with. The one rule I have about supreme? It’s gotta have at least TWO meats. Otherwise, it’s just another pizza…", 
-					12, 240
-				},
-				{
-					"prawnBtn.BackgroundImage", 
-					"Huge Aussie favourite, a pizza topped with garlic prawns AND finished with a drizzle of garlic butter. Heaven in the form of a pizza!",
-					180, 240
-				},
-				{
-					"kaleBtn.BackgroundImage", "If there was ever a way to get someone to eat kale, this is it!", 12, 12
-				},
-				{
-					"meatLoverBtn.BackgroundImage", "You don’t even need to use a fancy BBQ sauce here. Any generic store bought BBQ sauce is fine – this one is all about the toppings!", 180, 12
-				}
-			};
+			std::vector<Item> items = data::getData();
 
+			//data::addItem(items[0]);
 			int index = 0;
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(PizzaMenu::typeid));
 
@@ -89,9 +78,28 @@ namespace Project2 {
 					button->Location = System::Drawing::Point(items[index].x, items[index].y);
 					String^ str = gcnew String(items[index].img.c_str());
 					button->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(str)));
+					button->Text = gcnew String(items[index].name.c_str());
 					index++;
 				}
 			}
+		}
+
+		Pizza* makePizza(System::String^ name) {
+			Pizza* newPizza;
+			if (name == "Supreme Pizza") {
+				newPizza = new PizzaSauce(new Mozzarella(new Bacon(new Onion(new BeefMince(new Capsicum(new Pepperoni(new Mushroom(new Olive(new PlainPizza())))))))));	
+			}
+			else if (name == "Prawn Pizza") {
+				newPizza = new PizzaSauce(new Mozzarella(new GarlicButterPrawn(new Onion(new Chilli(new Capsicum(new Rocket(new PlainPizza())))))));
+			}
+			else if (name == "Kale Pizza") {
+				newPizza = new PizzaSauce(new Mozzarella(new Sausage(new Kale(new PlainPizza()))));	
+			}
+			else if (name == "Meat Lover Pizza") {
+				newPizza = new BBQSauce(new Mozzarella(new Pepperoni(new Bacon(new Cabanossi(new BeefMince(new Ham(new PlainPizza())))))));			
+			}
+
+			return newPizza;
 		}
 
 	protected:
@@ -111,10 +119,10 @@ namespace Project2 {
 
 
 
-	private: System::Windows::Forms::Button^ supremeBtn;
-	private: System::Windows::Forms::Button^ prawnBtn;
-	private: System::Windows::Forms::Button^ kaleBtn;
-	private: System::Windows::Forms::Button^ meatLoverBtn;
+
+
+
+
 
 
 
@@ -138,14 +146,14 @@ namespace Project2 {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(PizzaMenu::typeid));
 			this->show_receipt = (gcnew System::Windows::Forms::Button());
-			this->supremeBtn = (gcnew System::Windows::Forms::Button());
-			this->prawnBtn = (gcnew System::Windows::Forms::Button());
-			this->kaleBtn = (gcnew System::Windows::Forms::Button());
-			this->meatLoverBtn = (gcnew System::Windows::Forms::Button());
 			this->btn1 = (gcnew System::Windows::Forms::Button());
 			this->btn2 = (gcnew System::Windows::Forms::Button());
 			this->btn3 = (gcnew System::Windows::Forms::Button());
 			this->btn4 = (gcnew System::Windows::Forms::Button());
+			this->supremeBtn = (gcnew System::Windows::Forms::Button());
+			this->prawnBtn = (gcnew System::Windows::Forms::Button());
+			this->meatLoverBtn = (gcnew System::Windows::Forms::Button());
+			this->kaleBtn = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// show_receipt
@@ -157,6 +165,58 @@ namespace Project2 {
 			this->show_receipt->Text = L"0";
 			this->show_receipt->UseVisualStyleBackColor = true;
 			this->show_receipt->Click += gcnew System::EventHandler(this, &PizzaMenu::button3_Click);
+			// 
+			// btn1
+			// 
+			this->btn1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btn1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btn1->ForeColor = System::Drawing::SystemColors::Control;
+			this->btn1->Location = System::Drawing::Point(51, 45);
+			this->btn1->Name = L"btn1";
+			this->btn1->Size = System::Drawing::Size(200, 270);
+			this->btn1->TabIndex = 7;
+			this->btn1->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
+			this->btn1->UseVisualStyleBackColor = true;
+			this->btn1->Click += gcnew System::EventHandler(this, &PizzaMenu::btn1_Click);
+			// 
+			// btn2
+			// 
+			this->btn2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btn2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btn2->ForeColor = System::Drawing::SystemColors::Control;
+			this->btn2->Location = System::Drawing::Point(223, 45);
+			this->btn2->Name = L"btn2";
+			this->btn2->Size = System::Drawing::Size(200, 270);
+			this->btn2->TabIndex = 8;
+			this->btn2->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
+			this->btn2->UseVisualStyleBackColor = true;
+			this->btn2->Click += gcnew System::EventHandler(this, &PizzaMenu::btn2_Click_1);
+			// 
+			// btn3
+			// 
+			this->btn3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btn3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btn3->ForeColor = System::Drawing::SystemColors::Control;
+			this->btn3->Location = System::Drawing::Point(269, 288);
+			this->btn3->Name = L"btn3";
+			this->btn3->Size = System::Drawing::Size(200, 270);
+			this->btn3->TabIndex = 9;
+			this->btn3->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
+			this->btn3->UseVisualStyleBackColor = true;
+			this->btn3->Click += gcnew System::EventHandler(this, &PizzaMenu::btn3_Click);
+			// 
+			// btn4
+			// 
+			this->btn4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btn4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btn4->ForeColor = System::Drawing::SystemColors::Control;
+			this->btn4->Location = System::Drawing::Point(51, 279);
+			this->btn4->Name = L"btn4";
+			this->btn4->Size = System::Drawing::Size(200, 270);
+			this->btn4->TabIndex = 10;
+			this->btn4->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
+			this->btn4->UseVisualStyleBackColor = true;
+			this->btn4->Click += gcnew System::EventHandler(this, &PizzaMenu::btn4_Click);
 			// 
 			// supremeBtn
 			// 
@@ -184,19 +244,6 @@ namespace Project2 {
 			this->prawnBtn->UseVisualStyleBackColor = true;
 			this->prawnBtn->Click += gcnew System::EventHandler(this, &PizzaMenu::prawnBtn_Click);
 			// 
-			// kaleBtn
-			// 
-			this->kaleBtn->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"kaleBtn.BackgroundImage")));
-			this->kaleBtn->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->kaleBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->kaleBtn->ForeColor = System::Drawing::SystemColors::Control;
-			this->kaleBtn->Location = System::Drawing::Point(550, 12);
-			this->kaleBtn->Name = L"kaleBtn";
-			this->kaleBtn->Size = System::Drawing::Size(197, 271);
-			this->kaleBtn->TabIndex = 5;
-			this->kaleBtn->UseVisualStyleBackColor = true;
-			this->kaleBtn->Click += gcnew System::EventHandler(this, &PizzaMenu::kaleBtn_Click);
-			// 
 			// meatLoverBtn
 			// 
 			this->meatLoverBtn->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"meatLoverBtn.BackgroundImage")));
@@ -210,53 +257,18 @@ namespace Project2 {
 			this->meatLoverBtn->UseVisualStyleBackColor = true;
 			this->meatLoverBtn->Click += gcnew System::EventHandler(this, &PizzaMenu::meatLoverBtn_Click);
 			// 
-			// btn1
+			// kaleBtn
 			// 
-			this->btn1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->btn1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn1->ForeColor = System::Drawing::SystemColors::Control;
-			this->btn1->Location = System::Drawing::Point(51, 45);
-			this->btn1->Name = L"btn1";
-			this->btn1->Size = System::Drawing::Size(200, 270);
-			this->btn1->TabIndex = 7;
-			this->btn1->UseVisualStyleBackColor = true;
-			this->btn1->Click += gcnew System::EventHandler(this, &PizzaMenu::btn1_Click);
-			// 
-			// btn2
-			// 
-			this->btn2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->btn2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn2->ForeColor = System::Drawing::SystemColors::Control;
-			this->btn2->Location = System::Drawing::Point(223, 45);
-			this->btn2->Name = L"btn2";
-			this->btn2->Size = System::Drawing::Size(200, 270);
-			this->btn2->TabIndex = 8;
-			this->btn2->UseVisualStyleBackColor = true;
-			this->btn2->Click += gcnew System::EventHandler(this, &PizzaMenu::btn2_Click_1);
-			// 
-			// btn3
-			// 
-			this->btn3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->btn3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn3->ForeColor = System::Drawing::SystemColors::Control;
-			this->btn3->Location = System::Drawing::Point(269, 288);
-			this->btn3->Name = L"btn3";
-			this->btn3->Size = System::Drawing::Size(200, 270);
-			this->btn3->TabIndex = 9;
-			this->btn3->UseVisualStyleBackColor = true;
-			this->btn3->Click += gcnew System::EventHandler(this, &PizzaMenu::btn3_Click);
-			// 
-			// btn4
-			// 
-			this->btn4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->btn4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn4->ForeColor = System::Drawing::SystemColors::Control;
-			this->btn4->Location = System::Drawing::Point(51, 279);
-			this->btn4->Name = L"btn4";
-			this->btn4->Size = System::Drawing::Size(200, 270);
-			this->btn4->TabIndex = 10;
-			this->btn4->UseVisualStyleBackColor = true;
-			this->btn4->Click += gcnew System::EventHandler(this, &PizzaMenu::btn4_Click);
+			this->kaleBtn->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"kaleBtn.BackgroundImage")));
+			this->kaleBtn->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->kaleBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->kaleBtn->ForeColor = System::Drawing::SystemColors::Control;
+			this->kaleBtn->Location = System::Drawing::Point(550, 12);
+			this->kaleBtn->Name = L"kaleBtn";
+			this->kaleBtn->Size = System::Drawing::Size(197, 271);
+			this->kaleBtn->TabIndex = 5;
+			this->kaleBtn->UseVisualStyleBackColor = true;
+			this->kaleBtn->Click += gcnew System::EventHandler(this, &PizzaMenu::kaleBtn_Click);
 			// 
 			// PizzaMenu
 			// 
@@ -345,26 +357,67 @@ private: System::Void btn2_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 
 private: System::Void btn1_Click(System::Object^ sender, System::EventArgs^ e) {
-	Pizza* kalePizza = new PizzaSauce(new Mozzarella(new Sausage(new Kale(new PlainPizza()))));
-	
-	//System::String^ des = PizzaMenu::btn_names[0]->description;
-	//System::String^ ingredients = supremePizza->getDescription();
-	//double cost = supremePizza->getCost();
+	Pizza* newPizza = makePizza(btn1->Text);
+	std::vector<Item> items = data::getData();
+	System::String^ des = gcnew String(items[0].description.c_str());
+	System::String^ ingredients = newPizza->getDescription();
+	System::String^ name = btn1->Text;
 
-	//Description^ description = gcnew Description("Supreme Pizza", des, ingredients, cost);
-	//description->ShowDialog();
+	double cost = newPizza->getCost();
 
-	//show_receipt->Text = System::Convert::ToString(cart::getNumberOfItems());
+	Description^ description = gcnew Description(name , des, ingredients, cost);
+	description->ShowDialog();
+
+	show_receipt->Text = System::Convert::ToString(cart::getNumberOfItems());
 }
 
 private: System::Void btn2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	Pizza* newPizza = makePizza(btn2->Text);
+	std::vector<Item> items = data::getData();
+	System::String^ des = gcnew String(items[0].description.c_str());
+	System::String^ ingredients = newPizza->getDescription();
+	System::String^ name = btn2->Text;
+
+	double cost = newPizza->getCost();
+
+	Description^ description = gcnew Description(name , des, ingredients, cost);
+	description->ShowDialog();
+
+	show_receipt->Text = System::Convert::ToString(cart::getNumberOfItems());
+
 }
 
 private: System::Void btn3_Click(System::Object^ sender, System::EventArgs^ e) {
+	Pizza* newPizza = makePizza(btn3->Text);
+	std::vector<Item> items = data::getData();
+	System::String^ des = gcnew String(items[0].description.c_str());
+	System::String^ ingredients = newPizza->getDescription();
+	System::String^ name = btn3->Text;
+
+	double cost = newPizza->getCost();
+
+	Description^ description = gcnew Description(name , des, ingredients, cost);
+	description->ShowDialog();
+
+	show_receipt->Text = System::Convert::ToString(cart::getNumberOfItems());
+
 }
 
 	  
 private: System::Void btn4_Click(System::Object^ sender, System::EventArgs^ e) {
+	Pizza* newPizza = makePizza(btn4->Text);
+	std::vector<Item> items = data::getData();
+	System::String^ des = gcnew String(items[0].description.c_str());
+	System::String^ ingredients = newPizza->getDescription();
+	System::String^ name = btn4->Text;
+
+	double cost = newPizza->getCost();
+
+	Description^ description = gcnew Description(name , des, ingredients, cost);
+	description->ShowDialog();
+
+	show_receipt->Text = System::Convert::ToString(cart::getNumberOfItems());
+
 }
 };
 }
