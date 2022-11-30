@@ -35,6 +35,13 @@ namespace Project2 {
 			//
 			//TODO: Add the constructor code here
 			//
+			changeDefaultReceipt();
+		}
+
+		void changeDefaultReceipt() {
+			label1->Text = name;
+			label2->Text = price;
+			label4->Text = System::Convert::ToString(cart::getTotal());
 		}
 
 	protected:

@@ -149,6 +149,7 @@
     <ClInclude Include="Receipt.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SuccessfulNotification.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -172,6 +173,22 @@
     <EmbeddedResource Include="SuccessfulNotification.resx">
       <DependentUpon>SuccessfulNotification.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Project2.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="imgs\bacon-pizza.png" />
+    <Image Include="imgs\cake.png" />
+    <Image Include="imgs\cheese-pizza.png" />
+    <Image Include="imgs\final-pizza.png" />
+    <Image Include="imgs\kale-pizza.png" />
+    <Image Include="imgs\meat-lover-pizza.png" />
+    <Image Include="imgs\pepperoni-pizza.png" />
+    <Image Include="imgs\pine-pizza.png" />
+    <Image Include="imgs\prawn-pizza.png" />
+    <Image Include="imgs\smoothie.png" />
+    <Image Include="imgs\Supreme-Pizza.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

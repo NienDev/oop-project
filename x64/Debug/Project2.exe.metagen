@@ -22,6 +22,8 @@ Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c5619
 Class Project2.Receipt: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    changeDefaultReceipt(): PrivateScope, Public, HideBySig
 Class Project2.Description: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(System.String, System.String, System.String, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

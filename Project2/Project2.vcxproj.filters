@@ -71,5 +71,48 @@
     <ClInclude Include="data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Project2.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="imgs\bacon-pizza.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\cake.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\cheese-pizza.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\final-pizza.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\kale-pizza.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\meat-lover-pizza.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\pepperoni-pizza.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\pine-pizza.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\prawn-pizza.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\smoothie.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\Supreme-Pizza.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
