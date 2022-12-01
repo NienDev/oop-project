@@ -50,6 +50,7 @@ Class Project2.StateManagement: AutoLayout, AnsiClass, Class, Public, BeforeFiel
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
+    updateCart(): PrivateScope, Public, HideBySig
     isBtn(String): PrivateScope, Public, HideBySig
     setIndex(Int32): PrivateScope, Public, HideBySig
     setDefaultBtn(): PrivateScope, Public, HideBySig
