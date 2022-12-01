@@ -42,6 +42,12 @@
     <ClCompile Include="data.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ToggleBtns.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManagement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -72,6 +78,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ToggleBtns.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="soup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManagement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

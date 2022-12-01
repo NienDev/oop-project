@@ -75,7 +75,7 @@ namespace Project2 {
 		}
 
 		void createCustomBtns() {
-			std::vector<Item> items = data::getData();
+			std::vector<Item> items = data::getPizzas();
 
 			//data::addItem(items[0]);
 			int index = 0;
@@ -285,7 +285,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 private: System::Void btn1_Click(System::Object^ sender, System::EventArgs^ e) {
 	Pizza* newPizza = makePizza(btn1->Text);
-	std::vector<Item> items = data::getData();
+	std::vector<Item> items = data::getPizzas();
 	System::String^ des = gcnew String(items[0].description.c_str());
 	System::String^ ingredients = newPizza->getDescription();
 	System::String^ name = btn1->Text;
@@ -300,7 +300,7 @@ private: System::Void btn1_Click(System::Object^ sender, System::EventArgs^ e) {
 
 private: System::Void btn2_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	Pizza* newPizza = makePizza(btn2->Text);
-	std::vector<Item> items = data::getData();
+	std::vector<Item> items = data::getPizzas();
 	System::String^ des = gcnew String(items[0].description.c_str());
 	System::String^ ingredients = newPizza->getDescription();
 	System::String^ name = btn2->Text;
@@ -316,7 +316,7 @@ private: System::Void btn2_Click_1(System::Object^ sender, System::EventArgs^ e)
 
 private: System::Void btn3_Click(System::Object^ sender, System::EventArgs^ e) {
 	Pizza* newPizza = makePizza(btn3->Text);
-	std::vector<Item> items = data::getData();
+	std::vector<Item> items = data::getPizzas();
 	System::String^ des = gcnew String(items[0].description.c_str());
 	System::String^ ingredients = newPizza->getDescription();
 	System::String^ name = btn3->Text;
@@ -333,7 +333,7 @@ private: System::Void btn3_Click(System::Object^ sender, System::EventArgs^ e) {
 	  
 private: System::Void btn4_Click(System::Object^ sender, System::EventArgs^ e) {
 	Pizza* newPizza = makePizza(btn4->Text);
-	std::vector<Item> items = data::getData();
+	std::vector<Item> items = data::getPizzas();
 	System::String^ des = gcnew String(items[0].description.c_str());
 	System::String^ ingredients = newPizza->getDescription();
 	System::String^ name = btn4->Text;

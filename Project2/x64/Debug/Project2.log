@@ -6,7 +6,9 @@
   pizza.cpp
   PizzaMenu.cpp
   Receipt.cpp
+  StateManagement.cpp
   SuccessfulNotification.cpp
+  ToggleBtns.cpp
   .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
   Generating Code...
   cart.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link

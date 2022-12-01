@@ -129,7 +129,9 @@
     <ClCompile Include="pizza.cpp" />
     <ClCompile Include="PizzaMenu.cpp" />
     <ClCompile Include="Receipt.cpp" />
+    <ClCompile Include="StateManagement.cpp" />
     <ClCompile Include="SuccessfulNotification.cpp" />
+    <ClCompile Include="ToggleBtns.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cart.h" />
@@ -137,6 +139,7 @@
     <ClInclude Include="Description.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Header.h" />
     <ClInclude Include="Menu1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -151,7 +154,14 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="soup.h" />
+    <ClInclude Include="StateManagement.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="SuccessfulNotification.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ToggleBtns.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -170,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Receipt.resx">
       <DependentUpon>Receipt.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StateManagement.resx">
+      <DependentUpon>StateManagement.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SuccessfulNotification.resx">
       <DependentUpon>SuccessfulNotification.h</DependentUpon>

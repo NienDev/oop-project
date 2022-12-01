@@ -1,6 +1,6 @@
 #pragma once
 #include "Menu1.h"
-
+#include "StateManagement.h"
 namespace Project2 {
 
 	using namespace System;
@@ -182,9 +182,11 @@ namespace Project2 {
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		Menu1^ menu = gcnew Menu1;
-		this->Hide();
-		menu->ShowDialog();
+		//Menu1^ menu = gcnew Menu1;
+		//this->Hide();
+		//menu->ShowDialog();
+		StateManagement^ stateManagement = gcnew StateManagement;
+		stateManagement->ShowDialog();
 	}
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}

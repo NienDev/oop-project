@@ -13,9 +13,11 @@ class data
 {
 private:
 	static std::vector<Item> items;
+	static std::vector<Item> soups;
 public:
 
 	static void addItem(Item item);
-	static std::vector<Item> getData();
+	static std::vector<Item> getPizzas();
+	static std::vector<Item> getSoups();
 };
 

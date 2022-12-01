@@ -6,3 +6,5 @@ C:\Users\Nien\Desktop\Project2\Project2\Release\Project2.PizzaMenu.resources
 C:\Users\Nien\Desktop\Project2\Project2\Release\Project2.Receipt.resources
 C:\Users\Nien\Desktop\Project2\Project2\Release\Project2.SuccessfulNotification.resources
 C:\Users\Nien\Desktop\Project2\Project2\Release\Project2.vcxproj.GenerateResource.cache
+C:\Users\Nien\Desktop\Project2\Project2\Release\Project2.vcxproj.AssemblyReference.cache
+C:\Users\Nien\Desktop\Project2\Project2\Release\Project2.StateManagement.resources
