@@ -1,7 +1,13 @@
-﻿  Menu1.cpp
+﻿  cart.cpp
+  data.cpp
+  Description.cpp
+  Menu1.cpp
   MyForm.cpp
-C:\Users\Nien\Desktop\Project2\Project2\MyForm.cpp(7,33): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
+  pizza.cpp
   PizzaMenu.cpp
+  Receipt.cpp
+  SuccessfulNotification.cpp
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
   Generating Code...
   cart.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   Project2.vcxproj -> C:\Users\Nien\Desktop\Project2\x64\Debug\Project2.exe

@@ -1,0 +1,9 @@
+C:\Users\Nien\Desktop\Project2\Project2\Debug\Project2.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\Nien\Desktop\Project2\Project2\Debug\Project2.Description.resources
+C:\Users\Nien\Desktop\Project2\Project2\Debug\Project2.Menu1.resources
+C:\Users\Nien\Desktop\Project2\Project2\Debug\Project2.MyForm.resources
+C:\Users\Nien\Desktop\Project2\Project2\Debug\Project2.PizzaMenu.resources
+C:\Users\Nien\Desktop\Project2\Project2\Debug\Project2.Receipt.resources
+C:\Users\Nien\Desktop\Project2\Project2\Debug\Project2.SuccessfulNotification.resources
+C:\Users\Nien\Desktop\Project2\Project2\Debug\Project2.vcxproj.GenerateResource.cache
+C:\Users\Nien\Desktop\Project2\Project2\Debug\Project2.vcxproj.AssemblyReference.cache
