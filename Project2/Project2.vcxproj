@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cart.cpp" />
+    <ClCompile Include="cartData.cpp" />
     <ClCompile Include="data.cpp" />
     <ClCompile Include="Description.cpp" />
     <ClCompile Include="Menu1.cpp" />
@@ -135,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cart.h" />
+    <ClInclude Include="cartData.h" />
     <ClInclude Include="data.h" />
     <ClInclude Include="Description.h">
       <FileType>CppForm</FileType>
