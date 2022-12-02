@@ -2,6 +2,7 @@
 #include "data.h"
 #include "cartData.h"
 #include "pizza.h"
+#include "soup.h"
 namespace Project2
 {
 
@@ -61,7 +62,7 @@ public
 
 	private:
 		System::Windows::Forms::Label ^ label1;
-		static array<System::String ^> ^ btnImg_names = gcnew array<System::String ^>{"btn1", "btn2", "btn3", "btn4"};
+		static array<System::String ^> ^ btnImg_names = gcnew array<System::String ^>{"btn1", "btn2", "btn3", "btn4", "btn5", "btn6"};
 
 	private:
 
@@ -92,6 +93,9 @@ public
 
 	private:
 		array<System::Windows::Forms::PictureBox ^> ^ layouts = gcnew array<System::Windows::Forms::PictureBox ^>(100);
+	private: System::Windows::Forms::Button^ btn5;
+	private: System::Windows::Forms::Button^ btn6;
+	private: System::Windows::Forms::ImageList^ imageList5;
 
 	private: 
 		array<System::Windows::Forms::Label ^> ^ quantities = gcnew array<System::Windows::Forms::Label ^>(100);
@@ -171,6 +175,8 @@ public
 				quantities[i]->Size = System::Drawing::Size(80, 25);
 				//foodMoneys[i]->TabIndex = 20;
 				layouts[i]->Controls->Add(quantities[i]);	
+
+				layouts[i]->Hide();
 			}
 
 			updateCart();
@@ -184,14 +190,76 @@ public
    Marshal::FreeHGlobal(IntPtr((void*)chars));
 }
 
+		int getImgIndex(std::string foodName) {
+			if (index == 1) {
+			if (foodName == "Supreme Pizza") {
+				return 0;
+			}
+			else if (foodName == "Prawn Pizza") {
+				return 1;
+			}
+			else if (foodName == "Kale Pizza") {
+				return 2;
+			}
+			else if (foodName == "Meat Lover Pizza") {
+				return 3;
+			}
+			else if (foodName == "Pepperoni Pizza") return 4;
+			else if (foodName == "Hawaiian") return 5; 
+			else return -1;
+
+			}
+			else if (index == 2) {
+							if (foodName == "Chicken Soup") {
+				return 0;
+			}
+			else if (foodName == "Crab Soup") {
+				return 1;
+			}
+			else if (foodName == "Italian Meatball Soup") {
+				return 2;
+			}
+			else if (foodName == "Tomato Basil Soup") {
+				return 3;
+			}
+			else if (foodName == "Tom Yum") return 4;
+			else if (foodName == "White Bean Chicken Soup") return 5; 
+			else return -1;
+
+			}
+		}
+
+		void resetCart() {
+			int n;
+			if (index == 1) n = CartData::getNumberOfSoups();
+			else  n = CartData::getNumberOfItems();
+			for (int i = 0; i < n; i++) {
+				layouts[i]->Hide();
+			}
+				
+		}
+
 		void updateCart()
 		{
 			//remove
 			//loop through all cart items, remove all of them
-			std::vector<CartItem> data = CartData::getCartData();
+			std::vector<CartItem> data ;
+			if (index == 1) data = CartData::getCartData();
+
+			else {
+				data = CartData::getCartSoupData();
+			}
 
 			// add
-			for (int i = 0; i < CartData::getNumberOfItems(); i++)
+			int n;
+			if (index == 1) {
+				n = CartData::getNumberOfItems();
+			}
+			else {
+				n = CartData::getNumberOfSoups();
+			}
+
+			for (int i = 0; i < n; i++)
 			{
 	/*			layouts[i] = gcnew System::Windows::Forms::PictureBox;
 				foodNames[i] = gcnew System::Windows::Forms::Label;
@@ -213,7 +281,15 @@ public
 			
 				foodMoneys[i]->Text = System::Convert::ToString(data[i].price);
 			
-				icons[i]->BackgroundImage = imageList4->Images[i];
+				int imgIndex = getImgIndex(data[i].foodName);
+				if (index == 1) {
+				icons[i]->BackgroundImage = imageList4->Images[imgIndex];
+				}
+				else  {
+				icons[i]->BackgroundImage = imageList5->Images[imgIndex];
+
+				}
+
 			
 				
 
@@ -254,8 +330,37 @@ public
 			else if (name == "Meat Lover Pizza") {
 				newPizza = new BBQSauce(new Mozzarella(new Pepperoni(new Bacon(new Cabanossi(new BeefMince(new Ham(new PlainPizza())))))));
 			}
+			else if (name == "Hawaiian") {
+				newPizza = new PizzaSauce(new Mozzarella(new Ham(new Pineapple(new PlainPizza()))));
+			}
+			else if (name == "Pepperoni Pizza") {
+				newPizza = new PizzaSauce(new Mozzarella(new Pepperoni(new PlainPizza())));
+			}
 
 			return newPizza;
+		}
+
+		Soup* makeSoup(System::String^ name) {
+			Soup* newSoup;
+			if (name == "Chicken Soup") {
+				newSoup = new Chicken(new Carrot(new Celery(new ClearSoup())));
+			}
+			else if (name == "Tomato Basil Soup") {
+				newSoup = new Tomato(new Carrot(new BasilLeaf(new Onionn(new Garlic(new OliveOil(new ChickenBroth(new ClearSoup())))))));
+			}
+			else if (name == "Crab Soup") {
+				newSoup = new Chicken(new Crab(new Egg(new Corn(new Carrot(new Mushrooms(new Coriander(new RedShallot(new CornPowder(new ClearSoup())))))))));
+			}
+			else if (name == "Tom Yum") {
+				newSoup = new Shrimp(new Mushrooms(new Tomato(new Lemongrass(new Garlic(new Lime(new KaffirLimeLeaf(new Onionn(new Coriander(new ThaiChilli(new EvaporatedMilk(new ClearSoup())))))))))));
+			}
+			else if (name == "White Bean Chicken Soup") {
+				newSoup = new ChickenBroth(new WhiteBeans(new RoastedChicken(new Herbs(new ClearSoup()))));
+			}
+			else if (name == "Italian Meatball Soup") {
+				newSoup = new Tomato(new Noodles(new ItalianPorkMeatballs(new ClearSoup())));
+			}
+			return newSoup;
 		}
 
 
@@ -297,11 +402,15 @@ public
 				setDefaultBtn();
 				pizzabtn->BackgroundImage = imageList1->Images[1];
 				createCustomBtns();
+				resetCart();
+				updateCart();
 				break;
 			case 2:
 				setDefaultBtn();
 				soupbtn->BackgroundImage = imageList1->Images[3];
 				createCustomBtns();
+				resetCart();
+				updateCart();
 				break;
 			case 3:
 				setDefaultBtn();
@@ -407,6 +516,9 @@ public
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->imageList4 = (gcnew System::Windows::Forms::ImageList(this->components));
+			this->btn5 = (gcnew System::Windows::Forms::Button());
+			this->btn6 = (gcnew System::Windows::Forms::Button());
+			this->imageList5 = (gcnew System::Windows::Forms::ImageList(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -524,15 +636,19 @@ public
 			this->imageList2->Images->SetKeyName(1, L"prawn-pizza.png");
 			this->imageList2->Images->SetKeyName(2, L"kale-pizza.png");
 			this->imageList2->Images->SetKeyName(3, L"meat-lover-pizza.png");
+			this->imageList2->Images->SetKeyName(4, L"pepperoni-pizza.png");
+			this->imageList2->Images->SetKeyName(5, L"pine-pizza.png");
 			// 
 			// imageList3
 			// 
 			this->imageList3->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList3.ImageStream")));
 			this->imageList3->TransparentColor = System::Drawing::Color::Transparent;
 			this->imageList3->Images->SetKeyName(0, L"chicken-soup.png");
-			this->imageList3->Images->SetKeyName(1, L"crab-soup.png");
-			this->imageList3->Images->SetKeyName(2, L"tomato-soup.png");
+			this->imageList3->Images->SetKeyName(1, L"tomato-soup.png");
+			this->imageList3->Images->SetKeyName(2, L"crab-soup.png");
 			this->imageList3->Images->SetKeyName(3, L"tom-yum-soup.png");
+			this->imageList3->Images->SetKeyName(4, L"White-Bean-Chicken-Soup.png");
+			this->imageList3->Images->SetKeyName(5, L"Italian-Meatball-Soup.png");
 			// 
 			// pictureBox1
 			// 
@@ -563,9 +679,48 @@ public
 			this->imageList4->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList4.ImageStream")));
 			this->imageList4->TransparentColor = System::Drawing::Color::Transparent;
 			this->imageList4->Images->SetKeyName(0, L"supreme-pizza-icon.png");
-			this->imageList4->Images->SetKeyName(1, L"cheese-pizza-icon.png");
+			this->imageList4->Images->SetKeyName(1, L"prawn-pizza-icon.png");
 			this->imageList4->Images->SetKeyName(2, L"kale-pizza-icon.png");
 			this->imageList4->Images->SetKeyName(3, L"meat-lover-pizza-icon.png");
+			this->imageList4->Images->SetKeyName(4, L"pepperoni-pizza-icon.png");
+			this->imageList4->Images->SetKeyName(5, L"pine-pizza-icon.png");
+			// 
+			// btn5
+			// 
+			this->btn5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btn5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btn5->ForeColor = System::Drawing::SystemColors::Control;
+			this->btn5->Location = System::Drawing::Point(528, 100);
+			this->btn5->Name = L"btn5";
+			this->btn5->Size = System::Drawing::Size(200, 270);
+			this->btn5->TabIndex = 17;
+			this->btn5->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
+			this->btn5->UseVisualStyleBackColor = true;
+			this->btn5->Click += gcnew System::EventHandler(this, &StateManagement::btn5_Click);
+			// 
+			// btn6
+			// 
+			this->btn6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->btn6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btn6->ForeColor = System::Drawing::SystemColors::Control;
+			this->btn6->Location = System::Drawing::Point(533, 249);
+			this->btn6->Name = L"btn6";
+			this->btn6->Size = System::Drawing::Size(200, 270);
+			this->btn6->TabIndex = 18;
+			this->btn6->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
+			this->btn6->UseVisualStyleBackColor = true;
+			this->btn6->Click += gcnew System::EventHandler(this, &StateManagement::btn6_Click);
+			// 
+			// imageList5
+			// 
+			this->imageList5->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList5.ImageStream")));
+			this->imageList5->TransparentColor = System::Drawing::Color::Transparent;
+			this->imageList5->Images->SetKeyName(0, L"chicken-soup-modified.png");
+			this->imageList5->Images->SetKeyName(1, L"crab-soup-modified.png");
+			this->imageList5->Images->SetKeyName(2, L"Italian-Meatball-Soup-icon.png");
+			this->imageList5->Images->SetKeyName(3, L"tomato-soup-modified.png");
+			this->imageList5->Images->SetKeyName(4, L"tom-yum-soup-modified.png");
+			this->imageList5->Images->SetKeyName(5, L"White-Bean-Chicken-Soup-icon.png");
 			// 
 			// StateManagement
 			// 
@@ -574,6 +729,8 @@ public
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(250)), static_cast<System::Int32>(static_cast<System::Byte>(250)),
 				static_cast<System::Int32>(static_cast<System::Byte>(250)));
 			this->ClientSize = System::Drawing::Size(1266, 769);
+			this->Controls->Add(this->btn6);
+			this->Controls->Add(this->btn5);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btn4);
 			this->Controls->Add(this->btn3);
@@ -622,11 +779,15 @@ public
 	private:
 		System::Void btn1_Click(System::Object ^ sender, System::EventArgs ^ e)
 		{
-			//check name --> get price, description, name
-			Pizza* newPizza = makePizza(btn1->Text);
-			CartData::add(btn1->Text, newPizza->getDescription(), newPizza->getCost());
+			if (index == 1) {
+				Pizza* newPizza = makePizza(btn1->Text);
+				CartData::add(btn1->Text, newPizza->getDescription(), newPizza->getCost());
+			}
+			else {
+				Soup* newSoup = makeSoup(btn1->Text);
+				CartData::addSoup(btn1->Text, newSoup->getDescription(), newSoup->getCost());
+			}
 			
-			//find whether this pizza exist or not if yes increase the amount	
 				
 			updateCart();
 		}
@@ -643,11 +804,22 @@ public
 				
 			id.erase(0, id.length()-1);
 
-			for (int i = 0; i < CartData::getNumberOfItems(); i++) {
+			int n;
+			if (index == 1) n = CartData::getNumberOfItems();
+			else  n = CartData::getNumberOfSoups();
+
+			for (int i = 0; i < n; i++) {
 				layouts[i]->Hide();
 			}
 		
+			if (index == 1) {
+
 			CartData::remove(stoi(id));
+			}
+			else{
+				CartData::removeSoup(stoi(id));
+			}
+
 			updateCart();
 		}
 
@@ -661,18 +833,58 @@ public
 		{  
 		}
 	private: System::Void btn2_Click(System::Object^ sender, System::EventArgs^ e) {
-			Pizza* newPizza = makePizza(btn2->Text);
-			CartData::add(btn2->Text, newPizza->getDescription(), newPizza->getCost());
+						if (index == 1) {
+				Pizza* newPizza = makePizza(btn1->Text);
+				CartData::add(btn2->Text, newPizza->getDescription(), newPizza->getCost());
+			}
+						else  {
+							Soup* newSoup = makeSoup(btn1->Text);
+							CartData::addSoup(btn2->Text, newSoup->getDescription(), newSoup->getCost());
+						}
 			updateCart();
 	}
 private: System::Void btn4_Click(System::Object^ sender, System::EventArgs^ e) {
-		Pizza* newPizza = makePizza(btn4->Text);
-			CartData::add(btn4->Text, newPizza->getDescription(), newPizza->getCost());
+						if (index == 1) {
+				Pizza* newPizza = makePizza(btn1->Text);
+				CartData::add(btn4->Text, newPizza->getDescription(), newPizza->getCost());
+			}
+						else  {
+							Soup* newSoup = makeSoup(btn1->Text);
+							CartData::addSoup(btn4->Text, newSoup->getDescription(), newSoup->getCost());
+						}
 			updateCart();
 }
 private: System::Void btn3_Click(System::Object^ sender, System::EventArgs^ e) {
-		Pizza* newPizza = makePizza(btn3->Text);
-			CartData::add(btn3->Text, newPizza->getDescription(), newPizza->getCost());
+						if (index == 1) {
+				Pizza* newPizza = makePizza(btn1->Text);
+				CartData::add(btn3->Text, newPizza->getDescription(), newPizza->getCost());
+			}
+						else  {
+							Soup* newSoup = makeSoup(btn1->Text);
+							CartData::addSoup(btn3->Text, newSoup->getDescription(), newSoup->getCost());
+						}
+			updateCart();
+}
+private: System::Void btn5_Click(System::Object^ sender, System::EventArgs^ e) {
+						if (index == 1) {
+				Pizza* newPizza = makePizza(btn1->Text);
+				CartData::add(btn5->Text, newPizza->getDescription(), newPizza->getCost());
+			}
+						else {
+							Soup* newSoup = makeSoup(btn1->Text);
+							CartData::addSoup(btn5->Text, newSoup->getDescription(), newSoup->getCost());
+						}
+			updateCart();
+}
+private: System::Void btn6_Click(System::Object^ sender, System::EventArgs^ e) {
+						if (index == 1) {
+				Pizza* newPizza = makePizza(btn1->Text);
+				CartData::add(btn6->Text, newPizza->getDescription(), newPizza->getCost());
+			}
+						else  {
+							Soup* newSoup = makeSoup(btn1->Text);
+							CartData::addSoup(btn6->Text, newSoup->getDescription(), newSoup->getCost());
+						}
 			updateCart();
 }
 };

@@ -119,10 +119,10 @@ public:
         return tempSoup->getCost() + .45;
     }
 };
-class Onion : public SToppingDecorator
+class Onionn : public SToppingDecorator
 {
 public:
-    Onion(Soup* newSoup) : SToppingDecorator(newSoup)
+    Onionn(Soup* newSoup) : SToppingDecorator(newSoup)
     {
     }
     System::String^ getDescription()
@@ -378,4 +378,85 @@ public:
         return tempSoup->getCost() + .40;
     }
 };
+class WhiteBeans : public SToppingDecorator
+{
+public:
+    WhiteBeans(Soup* newSoup) : SToppingDecorator(newSoup)
+    {
+    }
+    System::String^ getDescription()
+    {
+        return tempSoup->getDescription() + ", white beans";
+    }
+    double getCost()
+    {
+        return tempSoup->getCost() + .99;
+    }
+};
+class RoastedChicken : public SToppingDecorator
+{
+public:
+    RoastedChicken(Soup* newSoup) : SToppingDecorator(newSoup)
+    {
+    }
+    System::String^ getDescription()
+    {
+        return tempSoup->getDescription() + ", roasted chicken";
+    }
+    double getCost()
+    {
+        return tempSoup->getCost() + 2.66;
+    }
+};
+class Herbs : public SToppingDecorator
+{
+public:
+    Herbs(Soup* newSoup) : SToppingDecorator(newSoup)
+    {
+    }
+    System::String^ getDescription()
+    {
+        return tempSoup->getDescription() + ", herbs";
+    }
+    double getCost()
+    {
+        return tempSoup->getCost() + .66;
+    }
+};
+class Noodles : public SToppingDecorator
+{
+public:
+    Noodles(Soup* newSoup) : SToppingDecorator(newSoup)
+    {
+    }
+    System::String^ getDescription()
+    {
+        return tempSoup->getDescription() + ", noodles";
+    }
+    double getCost()
+    {
+        return tempSoup->getCost() + 1.11;
+    }
+};
+class ItalianPorkMeatballs : public SToppingDecorator
+{
+public:
+    ItalianPorkMeatballs(Soup* newSoup) : SToppingDecorator(newSoup)
+    {
+    }
+    System::String^ getDescription()
+    {
+        return tempSoup->getDescription() + ", Italian Pork Meatballs";
+    }
+    double getCost()
+    {
+        return tempSoup->getCost() + 3.44;
+    }
+};
+
+
+
+
+
+
 

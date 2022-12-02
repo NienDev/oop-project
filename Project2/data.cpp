@@ -21,7 +21,11 @@ std::vector<Item> data::items{
 				},
 				{
 					"meatLoverBtn.BackgroundImage", "You don’t even need to use a fancy BBQ sauce here. Any generic store bought BBQ sauce is fine – this one is all about the toppings!", "Meat Lover Pizza", 180, 100
-				}
+				},{
+				"", "If you think you don’t like Hawaiian pizza, that’s because you haven’t tried homemade! I used to be one of “those people”…", "Hawaiian", 180, 320
+}, {
+	"", "Lots of pepperoni, and lots of cheese! This firm favourite deserves it’s place at the top of the PizzazTin list.", "Pepperoni Pizza", 340, 320
+}
 };
 
 std::vector<Item> data::soups{
@@ -37,6 +41,10 @@ std::vector<Item> data::soups{
 }, {
 	"","Tom yum or tom yam is a type of hot and sour Thai soup, usually cooked with shrimp. The words 'tom yam'' are derived from two Thai words.Tom refers to the boiling process, while yam means 'mixed'.","Tom Yum", 
 	12,320
+},{
+	"", "This soup is a slurpable, soothing, chicken broth-based soup, that's filled with white beans, roasted chicken, savory herbs, and hearty root vegetables. It's craveable on cold and rainy days.", "White Bean Chicken Soup", 180, 320
+}, {
+	"", "This soup is everything we love—it’s as easy as soup + meatballs! A tomato-y broth, noodles and some mini Italian pork meatballs make for a hearty supper everyone’s gonna love.", "Italian Meatball Soup", 340, 320
 }
 };
 

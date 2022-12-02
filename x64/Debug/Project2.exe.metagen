@@ -51,8 +51,11 @@ Class Project2.StateManagement: AutoLayout, AnsiClass, Class, Public, BeforeFiel
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
     MarshalString(String, basic_string<char\,std::char_traits<char>\,std::allocator<char> >* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
+    getImgIndex(basic_string<char\,std::char_traits<char>\,std::allocator<char> >*): PrivateScope, Public, HideBySig
+    resetCart(): PrivateScope, Public, HideBySig
     updateCart(): PrivateScope, Public, HideBySig
     makePizza(String): PrivateScope, Public, HideBySig
+    makeSoup(String): PrivateScope, Public, HideBySig
     isBtn(String): PrivateScope, Public, HideBySig
     setIndex(Int32): PrivateScope, Public, HideBySig
     setDefaultBtn(): PrivateScope, Public, HideBySig
