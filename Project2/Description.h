@@ -1,6 +1,5 @@
 #pragma once
 #include "Receipt.h"
-#include "cart.h"
 namespace Project2 {
 
 	using namespace System;
@@ -19,8 +18,18 @@ namespace Project2 {
 		 System::String^ name;
 		 System::String^ des;
 		 double cost;
-		 System::String^ ingre;
+		 int index;
+		 int imgIndex;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::ImageList^ imageList6;
+	private: System::Windows::Forms::ImageList^ imageList3;
+	private: System::Windows::Forms::ImageList^ imageList2;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::Label^ label6;
+		   System::String^ ingre;
 	public:
+		
+
 		Description(void)
 		{
 			InitializeComponent();
@@ -32,15 +41,40 @@ namespace Project2 {
 			this->name = name;
 			InitializeComponent();
 		}
-		Description(System::String^ name, System::String^ des, System::String^ ingre, double cost) {
+		
+void updateDescription() {
+	if (index == 1) {
+		pictureBox1->BackgroundImage = imageList2->Images[imgIndex];
+	}
+	else {
+		if (index == 2) {
+			pictureBox1->BackgroundImage = imageList3->Images[imgIndex];
+		}
+		else {
+			pictureBox1->BackgroundImage = imageList6->Images[imgIndex];
+		}
+	}
+	food_name_param->Text = name;
+	description_param->Text = des;
+	label6->Text = des;
+	label5->Text = ingre;
+	price_param->Text = cost.ToString();
+	
+	
+		}
+
+
+		Description(System::String^ name, System::String^ des, System::String^ ingre, double cost, int index,int imgIndex) {
 			this->name = name;
 			this->des = des;
 			this->ingre = ingre;
 			this->cost = cost;
+			this->index = index;
+				this->imgIndex = imgIndex;
 			InitializeComponent();
+			updateDescription();
 		}
-
-	protected:
+			protected:
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
@@ -54,20 +88,21 @@ namespace Project2 {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Button^ show_receipt;
+
 
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ food_name_param;
 	private: System::Windows::Forms::Label^ description_param;
-	private: System::Windows::Forms::Label^ ingredient_param;
+
 	private: System::Windows::Forms::Label^ price_param;
+	private: System::ComponentModel::IContainer^ components;
 	protected:
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -76,123 +111,198 @@ namespace Project2 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Description::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->show_receipt = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->food_name_param = (gcnew System::Windows::Forms::Label());
 			this->description_param = (gcnew System::Windows::Forms::Label());
-			this->ingredient_param = (gcnew System::Windows::Forms::Label());
 			this->price_param = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->imageList6 = (gcnew System::Windows::Forms::ImageList(this->components));
+			this->imageList3 = (gcnew System::Windows::Forms::ImageList(this->components));
+			this->imageList2 = (gcnew System::Windows::Forms::ImageList(this->components));
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(24, 23);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(12, 12);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(79, 16);
+			this->label1->Size = System::Drawing::Size(96, 19);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Food Name";
+			this->label1->Text = L"Food Name:";
 			this->label1->Click += gcnew System::EventHandler(this, &Description::label1_Click);
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(24, 73);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(12, 36);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(110, 16);
+			this->label2->Size = System::Drawing::Size(133, 19);
 			this->label2->TabIndex = 1;
-			this->label2->Text = L"Food Description";
+			this->label2->Text = L"Food Description:";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(24, 157);
+			this->label3->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(12, 216);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(73, 16);
+			this->label3->Size = System::Drawing::Size(86, 19);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Ingredients";
 			this->label3->Click += gcnew System::EventHandler(this, &Description::label3_Click);
 			// 
-			// show_receipt
-			// 
-			this->show_receipt->Location = System::Drawing::Point(315, 255);
-			this->show_receipt->Name = L"show_receipt";
-			this->show_receipt->Size = System::Drawing::Size(75, 23);
-			this->show_receipt->TabIndex = 3;
-			this->show_receipt->Text = L"Order";
-			this->show_receipt->UseVisualStyleBackColor = true;
-			this->show_receipt->Click += gcnew System::EventHandler(this, &Description::button1_Click);
-			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(24, 221);
+			this->label4->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->Location = System::Drawing::Point(28, 298);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(41, 16);
+			this->label4->Size = System::Drawing::Size(62, 19);
 			this->label4->TabIndex = 4;
-			this->label4->Text = L"Price:";
+			this->label4->Text = L"Price: $";
 			this->label4->Click += gcnew System::EventHandler(this, &Description::label4_Click);
 			// 
 			// food_name_param
 			// 
 			this->food_name_param->AutoSize = true;
-			this->food_name_param->Location = System::Drawing::Point(24, 39);
+			this->food_name_param->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB Demi", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->food_name_param->ForeColor = System::Drawing::Color::Black;
+			this->food_name_param->Location = System::Drawing::Point(110, 6);
 			this->food_name_param->Name = L"food_name_param";
-			this->food_name_param->Size = System::Drawing::Size(121, 16);
+			this->food_name_param->Size = System::Drawing::Size(212, 27);
 			this->food_name_param->TabIndex = 5;
-			//this->food_name_param->Text = L"Food Name param";
-			this->food_name_param->Text = name;
+			this->food_name_param->Text = L"Food Name param";
 			// 
 			// description_param
 			// 
 			this->description_param->AllowDrop = true;
-			this->description_param->Location = System::Drawing::Point(24, 89);
+			this->description_param->Location = System::Drawing::Point(13, 55);
 			this->description_param->Name = L"description_param";
-			this->description_param->Size = System::Drawing::Size(220, 68);
+			this->description_param->Size = System::Drawing::Size(195, 105);
 			this->description_param->TabIndex = 6;
-			//this->description_param->Text = L"nien";
-			this->description_param->Text = des;
+			this->description_param->Text = L"nien";
 			this->description_param->Click += gcnew System::EventHandler(this, &Description::description_param_Click);
-			// 
-			// ingredient_param
-			// 
-			this->ingredient_param->AutoSize = true;
-			this->ingredient_param->Location = System::Drawing::Point(24, 173);
-			this->ingredient_param->Name = L"ingredient_param";
-			this->ingredient_param->Size = System::Drawing::Size(115, 16);
-			this->ingredient_param->TabIndex = 7;
-			//this->ingredient_param->Text = L"Food Ingre Param";
-			this->ingredient_param->Text = ingre;
 			// 
 			// price_param
 			// 
+			this->price_param->AllowDrop = true;
 			this->price_param->AutoSize = true;
-			this->price_param->Location = System::Drawing::Point(60, 221);
+			this->price_param->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->price_param->ForeColor = System::Drawing::Color::Black;
+			this->price_param->Location = System::Drawing::Point(96, 294);
 			this->price_param->Name = L"price_param";
-			this->price_param->Size = System::Drawing::Size(79, 16);
+			this->price_param->Size = System::Drawing::Size(35, 23);
 			this->price_param->TabIndex = 8;
-			//this->price_param->Text = L"price param";
-			this->price_param->Text = System::Convert::ToString(cost);
+			this->price_param->Text = L"123";
+			this->price_param->Click += gcnew System::EventHandler(this, &Description::price_param_Click);
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->pictureBox1->Location = System::Drawing::Point(278, 36);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(184, 287);
+			this->pictureBox1->TabIndex = 9;
+			this->pictureBox1->TabStop = false;
+			// 
+			// imageList6
+			// 
+			this->imageList6->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList6.ImageStream")));
+			this->imageList6->TransparentColor = System::Drawing::Color::Transparent;
+			this->imageList6->Images->SetKeyName(0, L"bun-dau-mam-tom.png");
+			this->imageList6->Images->SetKeyName(1, L"bun-dau-thit.png");
+			this->imageList6->Images->SetKeyName(2, L"bun-dau-cha-com.png");
+			this->imageList6->Images->SetKeyName(3, L"bun-dau-gio-sun.png");
+			this->imageList6->Images->SetKeyName(4, L"bun-dau-cha-cua.png");
+			this->imageList6->Images->SetKeyName(5, L"bun-dau-thap-cam.png");
+			// 
+			// imageList3
+			// 
+			this->imageList3->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList3.ImageStream")));
+			this->imageList3->TransparentColor = System::Drawing::Color::Transparent;
+			this->imageList3->Images->SetKeyName(0, L"chicken-soup.png");
+			this->imageList3->Images->SetKeyName(1, L"tomato-soup.png");
+			this->imageList3->Images->SetKeyName(2, L"crab-soup.png");
+			this->imageList3->Images->SetKeyName(3, L"tom-yum-soup.png");
+			this->imageList3->Images->SetKeyName(4, L"White-Bean-Chicken-Soup.png");
+			this->imageList3->Images->SetKeyName(5, L"Italian-Meatball-Soup.png");
+			// 
+			// imageList2
+			// 
+			this->imageList2->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList2.ImageStream")));
+			this->imageList2->TransparentColor = System::Drawing::Color::Transparent;
+			this->imageList2->Images->SetKeyName(0, L"Supreme-Pizza.png");
+			this->imageList2->Images->SetKeyName(1, L"prawn-pizza.png");
+			this->imageList2->Images->SetKeyName(2, L"kale-pizza.png");
+			this->imageList2->Images->SetKeyName(3, L"meat-lover-pizza.png");
+			this->imageList2->Images->SetKeyName(4, L"pine-pizza.png");
+			this->imageList2->Images->SetKeyName(5, L"pepperoni-pizza.png");
+			// 
+			// label5
+			// 
+			this->label5->AllowDrop = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->Location = System::Drawing::Point(13, 238);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(203, 55);
+			this->label5->TabIndex = 10;
+			this->label5->Text = L"label5";
+			this->label5->Click += gcnew System::EventHandler(this, &Description::label5_Click);
+			// 
+			// label6
+			// 
+			this->label6->AllowDrop = true;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label6->Location = System::Drawing::Point(13, 55);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(259, 161);
+			this->label6->TabIndex = 6;
+			this->label6->Text = L"nien";
+			this->label6->Click += gcnew System::EventHandler(this, &Description::description_param_Click);
 			// 
 			// Description
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(402, 290);
+			this->ClientSize = System::Drawing::Size(462, 335);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->price_param);
-			this->Controls->Add(this->ingredient_param);
+			this->Controls->Add(this->label6);
 			this->Controls->Add(this->description_param);
 			this->Controls->Add(this->food_name_param);
 			this->Controls->Add(this->label4);
-			this->Controls->Add(this->show_receipt);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Description";
 			this->Text = L"Description";
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -212,6 +322,14 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	Receipt^ receipt = gcnew Receipt();
 	receipt->ShowDialog();
 
+}
+private: System::Void ingredient_param_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void ingredient_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void price_param_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

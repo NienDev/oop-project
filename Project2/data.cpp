@@ -9,18 +9,18 @@ std::vector<Item> data::items{
 					"supremeBtn.BackgroundImage", 
 					"Hot on the heels of pepperoni is Supreme, THE pizza I grew up with. The one rule I have about supreme? It’s gotta have at least TWO meats. Otherwise, it’s just another pizza…", 
 "Supreme Pizza",
-					12, 400
+					12, 100
 				},
 				{
 					"prawnBtn.BackgroundImage", 
 					"Huge Aussie favourite, a pizza topped with garlic prawns AND finished with a drizzle of garlic butter. Heaven in the form of a pizza!","Prawn Pizza",
-					340, 100
+					180, 100
 				},
 				{
-					"kaleBtn.BackgroundImage", "If there was ever a way to get someone to eat kale, this is it!", "Kale Pizza", 12, 100
+					"kaleBtn.BackgroundImage", "If there was ever a way to get someone to eat kale, this is it!", "Kale Pizza", 340, 100
 				},
 				{
-					"meatLoverBtn.BackgroundImage", "You don’t even need to use a fancy BBQ sauce here. Any generic store bought BBQ sauce is fine – this one is all about the toppings!", "Meat Lover Pizza", 180, 100
+					"meatLoverBtn.BackgroundImage", "You don’t even need to use a fancy BBQ sauce here. Any generic store bought BBQ sauce is fine – this one is all about the toppings!", "Meat Lover Pizza", 12, 400
 				},{
 				"", "If you think you don’t like Hawaiian pizza, that’s because you haven’t tried homemade! I used to be one of “those people”…", "Hawaiian", 180, 400
 }, {

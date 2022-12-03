@@ -4,6 +4,8 @@
 #include "pizza.h"
 #include "soup.h"
 #include "bundaumamtom.h"
+#include "Description.h"
+
 namespace Project2
 {
 
@@ -522,13 +524,12 @@ public
 			}
 
 			// data::addItem(items[0]);
-			int i = 0;
+			//int i = 0;
 			System::ComponentModel::ComponentResourceManager ^ resources = (gcnew System::ComponentModel::ComponentResourceManager(StateManagement::typeid));
-
-			for each (Control ^ button in this->Controls)
-			{
-				if (isImgBtn(button->Name))
+			for (int i = 0; i < 6; i++) {
+				for each (Control ^ button in this->Controls)
 				{
+					if (button->Name == btnImg_names[i]) {
 					button->Location = System::Drawing::Point(items[i].x, items[i].y);
 					String ^ str = gcnew String(items[i].img.c_str());
 					// button->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(str)));
@@ -547,10 +548,37 @@ public
 						button->BackgroundImage = imageList6->Images[i];
 					}
 					button->Text = gcnew String(items[i].name.c_str());
-					//button->Name = gcnew String (items[i].name.c_str());
-					i++;
+
+					break;
+					}
 				}
 			}
+			//for each (Control ^ button in this->Controls)
+			//{
+			//	if (isImgBtn(button->Name))
+			//	{
+			//		button->Location = System::Drawing::Point(items[i].x, items[i].y);
+			//		String ^ str = gcnew String(items[i].img.c_str());
+			//		// button->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(str)));
+			//		if (index == 1)
+			//		{
+
+			//			button->BackgroundImage = imageList2->Images[i];
+			//		}
+			//		else if (index == 2)
+			//		{
+
+			//			button->BackgroundImage = imageList3->Images[i];
+			//		}
+			//		else
+			//		{
+			//			button->BackgroundImage = imageList6->Images[i];
+			//		}
+			//		button->Text = gcnew String(items[i].name.c_str());
+			//		//button->Name = gcnew String (items[i].name.c_str());
+			//		i++;
+			//	}
+			//}
 		}
 
 	protected:
@@ -728,8 +756,8 @@ public
 			this->imageList2->Images->SetKeyName(1, L"prawn-pizza.png");
 			this->imageList2->Images->SetKeyName(2, L"kale-pizza.png");
 			this->imageList2->Images->SetKeyName(3, L"meat-lover-pizza.png");
-			this->imageList2->Images->SetKeyName(4, L"pepperoni-pizza.png");
-			this->imageList2->Images->SetKeyName(5, L"pine-pizza.png");
+			this->imageList2->Images->SetKeyName(4, L"pine-pizza.png");
+			this->imageList2->Images->SetKeyName(5, L"pepperoni-pizza.png");
 			// 
 			// imageList3
 			// 
@@ -905,18 +933,37 @@ public
 		System::Void btn1_Click(System::Object ^ sender, System::EventArgs ^ e)
 		{
 			if (index == 1) {
+
+			std::vector<Item> data = data::getPizzas();
 				Pizza* newPizza = makePizza(btn1->Text);
 				CartData::add(btn1->Text, newPizza->getDescription(), newPizza->getCost());
+				System::String^ des = gcnew String(data[0].description.c_str());
+				System::String^ name = btn1->Text;
+				System::String^ ingre = newPizza->getDescription();
+				double cost = newPizza->getCost();
+Description^ description = gcnew Description(name, des, ingre, cost, index, 0);
+description->ShowDialog();
 			}
 			else if (index ==2) {
+
+			std::vector<Item> data = data::getSoups();
 				Soup* newSoup = makeSoup(btn1->Text);
 				CartData::addSoup(btn1->Text, newSoup->getDescription(), newSoup->getCost());
+								String^ tmp = gcnew String(data[0].description.c_str());
+				Description^ description = gcnew Description(btn1->Text, tmp, newSoup->getDescription(), newSoup->getCost(), index, 0);
+description->ShowDialog();
 			}
 			else {
+
+			std::vector<Item> data = data::getBunDauMamTom();
 				BunDauMamTomInterface* newBundaumamtom = makeBunDauMamTom(btn1->Text);
 				CartData::addBundaumamtom(btn1->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
+								String^ tmp = gcnew String(data[0].description.c_str());
+				Description^ description = gcnew Description(btn1->Text, tmp, newBundaumamtom->getDescription(), newBundaumamtom->getCost(), index, 0);
+description->ShowDialog();
 			}
 			
+
 				
 			updateCart();
 		}
@@ -966,14 +1013,35 @@ public
 						if (index == 1) {
 				Pizza* newPizza = makePizza(btn2->Text);
 				CartData::add(btn2->Text, newPizza->getDescription(), newPizza->getCost());
+					std::vector<Item> data = data::getPizzas();
+	System::String^ des = gcnew String(data[1].description.c_str());
+				System::String^ name = btn2->Text;
+				System::String^ ingre = newPizza->getDescription();
+				double cost = newPizza->getCost();
+Description^ description = gcnew Description(name, des, ingre, cost, index, 1);
+description->ShowDialog();
 			}
 						else  if (index == 2) {
 							Soup* newSoup = makeSoup(btn2->Text);
 							CartData::addSoup(btn2->Text, newSoup->getDescription(), newSoup->getCost());
+								std::vector<Item> data = data::getSoups();
+	System::String^ des = gcnew String(data[1].description.c_str());
+				System::String^ name = btn2->Text;
+				System::String^ ingre = newSoup->getDescription();
+				double cost = newSoup->getCost();
+Description^ description = gcnew Description(name, des, ingre, cost, index, 1);
+description->ShowDialog();
 						}
 						else {
 							BunDauMamTomInterface* newBundaumamtom = makeBunDauMamTom(btn2->Text);
 							CartData::addBundaumamtom(btn2->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
+								std::vector<Item> data = data::getBunDauMamTom();
+	System::String^ des = gcnew String(data[1].description.c_str());
+				System::String^ name = btn2->Text;
+				System::String^ ingre = newBundaumamtom->getDescription();
+				double cost = newBundaumamtom->getCost();
+Description^ description = gcnew Description(name, des, ingre, cost, index, 1);
+description->ShowDialog();
 						}
 			updateCart();
 	}
@@ -981,15 +1049,35 @@ private: System::Void btn4_Click(System::Object^ sender, System::EventArgs^ e) {
 						if (index == 1) {
 				Pizza* newPizza = makePizza(btn4->Text);
 				CartData::add(btn4->Text, newPizza->getDescription(), newPizza->getCost());
+					std::vector<Item> data = data::getPizzas();
+	System::String^ des = gcnew String(data[3].description.c_str());
+				System::String^ name = btn4->Text;
+				System::String^ ingre = newPizza->getDescription();
+				double cost = newPizza->getCost();
+Description^ description = gcnew Description(name, des, ingre, cost, index, 3);
+description->ShowDialog();
 			}
 						else if (index == 2) {
 							Soup* newSoup = makeSoup(btn4->Text);
 							CartData::addSoup(btn4->Text, newSoup->getDescription(), newSoup->getCost());
+								std::vector<Item> data = data::getSoups();
+	System::String^ des = gcnew String(data[3].description.c_str());
+				System::String^ name = btn4->Text;
+				System::String^ ingre = newSoup->getDescription();
+				double cost = newSoup->getCost();
+Description^ description = gcnew Description(name, des, ingre, cost, index, 3);
+description->ShowDialog();
 						}
 						else {
 								BunDauMamTomInterface* newBundaumamtom = makeBunDauMamTom(btn4->Text);
 							CartData::addBundaumamtom(btn4->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
-
+							std::vector<Item> data = data::getBunDauMamTom();
+	System::String^ des = gcnew String(data[3].description.c_str());
+				System::String^ name = btn4->Text;
+				System::String^ ingre = newBundaumamtom->getDescription();
+				double cost = newBundaumamtom->getCost();
+Description^ description = gcnew Description(name, des, ingre, cost, index, 3);
+description->ShowDialog();
 						}
 			updateCart();
 }
@@ -997,15 +1085,35 @@ private: System::Void btn3_Click(System::Object^ sender, System::EventArgs^ e) {
 						if (index == 1) {
 				Pizza* newPizza = makePizza(btn3->Text);
 				CartData::add(btn3->Text, newPizza->getDescription(), newPizza->getCost());
+	std::vector<Item> data = data::getPizzas();
+	System::String^ des = gcnew String(data[2].description.c_str());
+				System::String^ name = btn3->Text;
+				System::String^ ingre = newPizza->getDescription();
+				double cost = newPizza->getCost();
+Description^ description = gcnew Description(name, des, ingre, cost, index, 2);
+description->ShowDialog();
 			}
 						else  if (index == 2) {
 							Soup* newSoup = makeSoup(btn3->Text);
 							CartData::addSoup(btn3->Text, newSoup->getDescription(), newSoup->getCost());
+								std::vector<Item> data = data::getSoups();
+	System::String^ des = gcnew String(data[2].description.c_str());
+				System::String^ name = btn3->Text;
+				System::String^ ingre = newSoup->getDescription();
+				double cost = newSoup->getCost();
+Description^ description = gcnew Description(name, des, ingre, cost, index, 2);
+description->ShowDialog();
 						}
 						else {
 											BunDauMamTomInterface* newBundaumamtom = makeBunDauMamTom(btn3->Text);
 							CartData::addBundaumamtom(btn3->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
-
+	std::vector<Item> data = data::getPizzas();
+	System::String^ des = gcnew String(data[2].description.c_str());
+				System::String^ name = btn3->Text;
+				System::String^ ingre = newBundaumamtom->getDescription();
+				double cost = newBundaumamtom->getCost();
+Description^ description = gcnew Description(name, des, ingre, cost, index, 2);
+description->ShowDialog();
 						}
 			updateCart();
 }
@@ -1013,15 +1121,35 @@ private: System::Void btn5_Click(System::Object^ sender, System::EventArgs^ e) {
 						if (index == 1) {
 				Pizza* newPizza = makePizza(btn5->Text);
 				CartData::add(btn5->Text, newPizza->getDescription(), newPizza->getCost());
+					std::vector<Item> data = data::getPizzas();
+	System::String^ des = gcnew String(data[4].description.c_str());
+				System::String^ name = btn5->Text;
+				System::String^ ingre = newPizza->getDescription();
+				double cost = newPizza->getCost();
+Description^ description = gcnew Description(name, des, ingre, cost, index, 4);
+description->ShowDialog();
 			}
 						else if (index == 2) {
 							Soup* newSoup = makeSoup(btn5->Text);
 							CartData::addSoup(btn5->Text, newSoup->getDescription(), newSoup->getCost());
+								std::vector<Item> data = data::getSoups();
+	System::String^ des = gcnew String(data[4].description.c_str());
+				System::String^ name = btn5->Text;
+				System::String^ ingre = newSoup->getDescription();
+				double cost = newSoup->getCost();
+Description^ description = gcnew Description(name, des, ingre, cost, index, 4);
+description->ShowDialog();
 						}
 						else {
 				BunDauMamTomInterface* newBundaumamtom = makeBunDauMamTom(btn5->Text);
 							CartData::addBundaumamtom(btn5->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
-
+	std::vector<Item> data = data::getBunDauMamTom();
+	System::String^ des = gcnew String(data[4].description.c_str());
+				System::String^ name = btn5->Text;
+				System::String^ ingre = newBundaumamtom->getDescription();
+				double cost = newBundaumamtom->getCost();
+Description^ description = gcnew Description(name, des, ingre, cost, index, 4);
+description->ShowDialog();
 						}
 			updateCart();
 }
@@ -1029,15 +1157,35 @@ private: System::Void btn6_Click(System::Object^ sender, System::EventArgs^ e) {
 						if (index == 1) {
 				Pizza* newPizza = makePizza(btn6->Text);
 				CartData::add(btn6->Text, newPizza->getDescription(), newPizza->getCost());
+					std::vector<Item> data = data::getPizzas();
+	System::String^ des = gcnew String(data[5].description.c_str());
+				System::String^ name = btn6->Text;
+				System::String^ ingre = newPizza->getDescription();
+				double cost = newPizza->getCost();
+Description^ description = gcnew Description(name, des, ingre, cost, index, 5);
+description->ShowDialog();
 			}
 						else  if (index == 2) {
 							Soup* newSoup = makeSoup(btn6->Text);
 							CartData::addSoup(btn6->Text, newSoup->getDescription(), newSoup->getCost());
+								std::vector<Item> data = data::getSoups();
+	System::String^ des = gcnew String(data[5].description.c_str());
+				System::String^ name = btn6->Text;
+				System::String^ ingre = newSoup->getDescription();
+				double cost = newSoup->getCost();
+Description^ description = gcnew Description(name, des, ingre, cost, index, 5);
+description->ShowDialog();
 						}
 						else {
 											BunDauMamTomInterface* newBundaumamtom = makeBunDauMamTom(btn6->Text);
 							CartData::addBundaumamtom(btn6->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
-
+	std::vector<Item> data = data::getBunDauMamTom();
+	System::String^ des = gcnew String(data[5].description.c_str());
+				System::String^ name = btn6->Text;
+				System::String^ ingre = newBundaumamtom->getDescription();
+				double cost = newBundaumamtom->getCost();
+Description^ description = gcnew Description(name, des, ingre, cost, index, 5);
+description->ShowDialog();
 						}
 			updateCart();
 }
