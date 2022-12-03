@@ -3,6 +3,7 @@
 #include "cartData.h"
 #include "pizza.h"
 #include "soup.h"
+#include "bundaumamtom.h"
 namespace Project2
 {
 
@@ -43,7 +44,7 @@ public
 	private:
 		System::Windows::Forms::Button ^ btn1;
 
-		static array<System::String ^> ^ btn_names = gcnew array<System::String ^>{"soupbtn", "bundaumamtombtn", "pizzabtn"};
+		static array<System::String ^> ^ btn_names = gcnew array<System::String ^>{"soupbtn", "bundaubtn", "pizzabtn"};
 
 	private:
 		System::ComponentModel::IContainer ^ components;
@@ -96,16 +97,19 @@ public
 	private: System::Windows::Forms::Button^ btn5;
 	private: System::Windows::Forms::Button^ btn6;
 	private: System::Windows::Forms::ImageList^ imageList5;
+	private: System::Windows::Forms::ImageList^ imageList6;
+	private: System::Windows::Forms::ImageList^ imageList7;
 
 	private: 
 		array<System::Windows::Forms::Label ^> ^ quantities = gcnew array<System::Windows::Forms::Label ^>(100);
+	private: Label^ total = gcnew Label;
 
 	public:
 		StateManagement(void)
 		{
 			InitializeComponent();
 			index = 1;
-			updateState();
+			updateState(1);
 
 			createCustomBtns();
 			//
@@ -132,7 +136,7 @@ public
 					//foodNames[i]->TabIndex = 200;
 				foodNames[i]->Size = System::Drawing::Size(50, 60);
 				foodNames[i]->AutoSize = true;
-				foodNames[i]->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				foodNames[i]->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 																													static_cast<System::Byte>(163)));
 				foodNames[i]->Location = System::Drawing::Point(100, 20);
 				foodNames[i]->BackColor = System::Drawing::Color::White;
@@ -143,9 +147,10 @@ public
 								foodMoneys[i]->Name = "money" + System::Convert::ToString(i);
 
 				foodMoneys[i]->BackColor = System::Drawing::Color::White;
-				foodMoneys[i]->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				foodMoneys[i]->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 																													 static_cast<System::Byte>(163)));
 				foodMoneys[i]->Location = System::Drawing::Point(100, 50);
+				foodMoneys[i]->Name = "foodMoney" + System::Convert::ToString(i);
 				layouts[i]->Controls->Add(foodMoneys[i]);
 				icons[i]->Name = "icon" + System::Convert::ToString(i);
 				icons[i]->BackColor = System::Drawing::Color::White;
@@ -178,7 +183,24 @@ public
 
 				layouts[i]->Hide();
 			}
+			total->Name = "total";
+			total->Text = "Price: $0";
+			total->Location = System::Drawing::Point(250, 650);
+			total->BackColor = Color().White;
+			total->Size = System::Drawing::Size(100, 20);
+							total->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+																													 static_cast<System::Byte>(163)));
+			pictureBox1->Controls->Add(total);
 
+			Label^ priceLabel = gcnew Label;
+			priceLabel->Name = "pricelabel";
+			priceLabel->Text = "Price: ";
+			priceLabel->Location = System::Drawing::Point(210, 660);
+			priceLabel->BackColor = Color().White;
+			priceLabel->Size = System::Drawing::Size(100, 20);
+							total->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+																													 static_cast<System::Byte>(163)));
+			pictureBox1->Controls->Add(priceLabel);
 			updateCart();
 		}
 
@@ -227,12 +249,30 @@ public
 			else return -1;
 
 			}
+			else {
+				if (foodName == "Bun Dau Mam Tom") {
+					return 1;
+				}
+				else if (foodName == "Bun Dau Thit") {
+					return 0;
+				}
+				else if (foodName == "Bun Dau Cha Com") {
+					return 2;
+				}
+				else if (foodName == "Bun Dau Cha Cua") {
+					return 4;
+				}
+				else if (foodName == "Bun Dau Doi Sun") return 3;
+				else if (foodName == "Bun Dau Thap Cam") return 5;
+				else return -1;
+			}
 		}
 
-		void resetCart() {
+		void resetCart(int prevIndex) {
 			int n;
-			if (index == 1) n = CartData::getNumberOfSoups();
-			else  n = CartData::getNumberOfItems();
+			if (prevIndex == 1) n = CartData::getNumberOfItems();
+			else  if (prevIndex== 2)n = CartData::getNumberOfSoups();
+			else n = CartData::getNumberOfBundaumamtom();
 			for (int i = 0; i < n; i++) {
 				layouts[i]->Hide();
 			}
@@ -246,18 +286,20 @@ public
 			std::vector<CartItem> data ;
 			if (index == 1) data = CartData::getCartData();
 
-			else {
+			else if (index == 2) {
 				data = CartData::getCartSoupData();
 			}
+			else data = CartData::getBundaumamtomData();
 
 			// add
 			int n;
 			if (index == 1) {
 				n = CartData::getNumberOfItems();
 			}
-			else {
+			else if (index == 2) {
 				n = CartData::getNumberOfSoups();
 			}
+			else n = CartData::getNumberOfBundaumamtom();
 
 			for (int i = 0; i < n; i++)
 			{
@@ -269,7 +311,7 @@ public
 				
 				layouts[i]->Show();
 			
-				layouts[i]->Location = System::Drawing::Point(600, 70 + 120*i);
+				layouts[i]->Location = System::Drawing::Point(600, 70 + 80*i);
 				layouts[i]->BringToFront();	
 
 				foodNames[i]->Text = gcnew String(data[i].foodName.c_str());
@@ -285,10 +327,12 @@ public
 				if (index == 1) {
 				icons[i]->BackgroundImage = imageList4->Images[imgIndex];
 				}
-				else  {
+				else  if (index == 2) {
 				icons[i]->BackgroundImage = imageList5->Images[imgIndex];
 
 				}
+				else icons[i]->BackgroundImage = imageList7->Images[imgIndex];
+
 
 			
 				
@@ -302,6 +346,12 @@ public
 				quantities[i]->Text = System::Convert::ToString(data[i].amount);
 				
 			}
+
+			double sum = 0;
+			for (CartItem item : data) {
+				sum += item.price * item.amount;
+			}
+			total->Text = sum.ToString();
 
 			/*for (int i = 0; i < 10; i++) {
 				btns[i] = gcnew System::Windows::Forms::Button;
@@ -363,6 +413,29 @@ public
 			return newSoup;
 		}
 
+		BunDauMamTomInterface* makeBunDauMamTom(System::String^ name) {
+			BunDauMamTomInterface* newBunDauMamTom;
+			if (name == "Bun Dau Thit") {
+				newBunDauMamTom = new BoiledPork(new BunDauMamTom());
+			}
+			else if (name == "Bun Dau Mam Tom") {
+				newBunDauMamTom = new BunDauMamTom();
+			}
+			else if (name == "Bun Dau Cha Com") {
+				newBunDauMamTom = new FlakeMeatballs(new BunDauMamTom());
+			}
+			else if (name == "Bun Dau Doi Sun") {
+				newBunDauMamTom = new Sausagee(new BunDauMamTom());
+			}
+			else if (name == "Bun Dau Cha Cua") {
+				newBunDauMamTom = new CrabCake(new BunDauMamTom());
+			}
+			else if (name == "Bun Dau Thap Cam") {
+				newBunDauMamTom = new FlakeMeatballs(new Sausagee(new CrabCake(new NemChuaRan(new BoiledPork(new BunDauMamTom())))));
+			}
+			return newBunDauMamTom;
+		}
+
 
 		bool isBtn(System::String ^ name)
 		{
@@ -394,7 +467,7 @@ public
 				}
 			}
 		}
-		void updateState()
+		void updateState(int prevIndex)
 		{
 			switch (index)
 			{
@@ -402,19 +475,22 @@ public
 				setDefaultBtn();
 				pizzabtn->BackgroundImage = imageList1->Images[1];
 				createCustomBtns();
-				resetCart();
+				resetCart(prevIndex);
 				updateCart();
 				break;
 			case 2:
 				setDefaultBtn();
 				soupbtn->BackgroundImage = imageList1->Images[3];
 				createCustomBtns();
-				resetCart();
+				resetCart(prevIndex);
 				updateCart();
 				break;
 			case 3:
 				setDefaultBtn();
 				bundaubtn->BackgroundImage = imageList1->Images[5];
+				createCustomBtns();
+				resetCart(prevIndex);
+				updateCart();
 				break;
 			}
 		}
@@ -441,6 +517,7 @@ public
 				items = data::getSoups();
 				break;
 			case 3:
+				items = data::getBunDauMamTom();
 				break;
 			}
 
@@ -467,6 +544,7 @@ public
 					}
 					else
 					{
+						button->BackgroundImage = imageList6->Images[i];
 					}
 					button->Text = gcnew String(items[i].name.c_str());
 					//button->Name = gcnew String (items[i].name.c_str());
@@ -519,6 +597,8 @@ public
 			this->btn5 = (gcnew System::Windows::Forms::Button());
 			this->btn6 = (gcnew System::Windows::Forms::Button());
 			this->imageList5 = (gcnew System::Windows::Forms::ImageList(this->components));
+			this->imageList6 = (gcnew System::Windows::Forms::ImageList(this->components));
+			this->imageList7 = (gcnew System::Windows::Forms::ImageList(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -569,10 +649,13 @@ public
 			// 
 			this->btn4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->btn4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn4->ForeColor = System::Drawing::SystemColors::Control;
-			this->btn4->Location = System::Drawing::Point(35, 334);
+			this->btn4->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB Demi", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btn4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->btn4->Location = System::Drawing::Point(35, 439);
 			this->btn4->Name = L"btn4";
-			this->btn4->Size = System::Drawing::Size(200, 270);
+			this->btn4->Size = System::Drawing::Size(200, 348);
 			this->btn4->TabIndex = 14;
 			this->btn4->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
 			this->btn4->UseVisualStyleBackColor = true;
@@ -582,10 +665,13 @@ public
 			// 
 			this->btn3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->btn3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn3->ForeColor = System::Drawing::SystemColors::Control;
-			this->btn3->Location = System::Drawing::Point(253, 343);
+			this->btn3->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB Demi", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btn3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->btn3->Location = System::Drawing::Point(251, 439);
 			this->btn3->Name = L"btn3";
-			this->btn3->Size = System::Drawing::Size(200, 270);
+			this->btn3->Size = System::Drawing::Size(200, 348);
 			this->btn3->TabIndex = 13;
 			this->btn3->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
 			this->btn3->UseVisualStyleBackColor = true;
@@ -595,10 +681,13 @@ public
 			// 
 			this->btn2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->btn2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn2->ForeColor = System::Drawing::SystemColors::Control;
-			this->btn2->Location = System::Drawing::Point(207, 100);
+			this->btn2->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB Demi", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btn2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->btn2->Location = System::Drawing::Point(241, 85);
 			this->btn2->Name = L"btn2";
-			this->btn2->Size = System::Drawing::Size(200, 270);
+			this->btn2->Size = System::Drawing::Size(200, 348);
 			this->btn2->TabIndex = 12;
 			this->btn2->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
 			this->btn2->UseVisualStyleBackColor = true;
@@ -606,15 +695,18 @@ public
 			// 
 			// btn1
 			// 
+			this->btn1->BackColor = System::Drawing::Color::White;
 			this->btn1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->btn1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn1->ForeColor = System::Drawing::SystemColors::Control;
-			this->btn1->Location = System::Drawing::Point(35, 100);
+			this->btn1->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB Demi", 10, System::Drawing::FontStyle::Bold));
+			this->btn1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->btn1->Location = System::Drawing::Point(35, 85);
 			this->btn1->Name = L"btn1";
-			this->btn1->Size = System::Drawing::Size(200, 270);
+			this->btn1->Size = System::Drawing::Size(200, 348);
 			this->btn1->TabIndex = 11;
 			this->btn1->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
-			this->btn1->UseVisualStyleBackColor = true;
+			this->btn1->UseVisualStyleBackColor = false;
 			this->btn1->Click += gcnew System::EventHandler(this, &StateManagement::btn1_Click);
 			// 
 			// imageList1
@@ -655,7 +747,7 @@ public
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(767, -9);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(503, 776);
+			this->pictureBox1->Size = System::Drawing::Size(503, 998);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 15;
 			this->pictureBox1->TabStop = false;
@@ -689,10 +781,13 @@ public
 			// 
 			this->btn5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->btn5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn5->ForeColor = System::Drawing::SystemColors::Control;
-			this->btn5->Location = System::Drawing::Point(528, 100);
+			this->btn5->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB Demi", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btn5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->btn5->Location = System::Drawing::Point(449, 85);
 			this->btn5->Name = L"btn5";
-			this->btn5->Size = System::Drawing::Size(200, 270);
+			this->btn5->Size = System::Drawing::Size(200, 348);
 			this->btn5->TabIndex = 17;
 			this->btn5->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
 			this->btn5->UseVisualStyleBackColor = true;
@@ -702,10 +797,13 @@ public
 			// 
 			this->btn6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->btn6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn6->ForeColor = System::Drawing::SystemColors::Control;
-			this->btn6->Location = System::Drawing::Point(533, 249);
+			this->btn6->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB Demi", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btn6->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->btn6->Location = System::Drawing::Point(490, 439);
 			this->btn6->Name = L"btn6";
-			this->btn6->Size = System::Drawing::Size(200, 270);
+			this->btn6->Size = System::Drawing::Size(200, 348);
 			this->btn6->TabIndex = 18;
 			this->btn6->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
 			this->btn6->UseVisualStyleBackColor = true;
@@ -715,12 +813,34 @@ public
 			// 
 			this->imageList5->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList5.ImageStream")));
 			this->imageList5->TransparentColor = System::Drawing::Color::Transparent;
-			this->imageList5->Images->SetKeyName(0, L"chicken-soup-modified.png");
-			this->imageList5->Images->SetKeyName(1, L"crab-soup-modified.png");
+			this->imageList5->Images->SetKeyName(0, L"chicken-soup-icon.png");
+			this->imageList5->Images->SetKeyName(1, L"crab-soup-icon.png");
 			this->imageList5->Images->SetKeyName(2, L"Italian-Meatball-Soup-icon.png");
-			this->imageList5->Images->SetKeyName(3, L"tomato-soup-modified.png");
-			this->imageList5->Images->SetKeyName(4, L"tom-yum-soup-modified.png");
+			this->imageList5->Images->SetKeyName(3, L"tomato-soup-icon.png");
+			this->imageList5->Images->SetKeyName(4, L"tom-yum-soup-icon.png");
 			this->imageList5->Images->SetKeyName(5, L"White-Bean-Chicken-Soup-icon.png");
+			// 
+			// imageList6
+			// 
+			this->imageList6->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList6.ImageStream")));
+			this->imageList6->TransparentColor = System::Drawing::Color::Transparent;
+			this->imageList6->Images->SetKeyName(0, L"bun-dau-mam-tom.png");
+			this->imageList6->Images->SetKeyName(1, L"bun-dau-thit.png");
+			this->imageList6->Images->SetKeyName(2, L"bun-dau-cha-com.png");
+			this->imageList6->Images->SetKeyName(3, L"bun-dau-gio-sun.png");
+			this->imageList6->Images->SetKeyName(4, L"bun-dau-cha-cua.png");
+			this->imageList6->Images->SetKeyName(5, L"bun-dau-thap-cam.png");
+			// 
+			// imageList7
+			// 
+			this->imageList7->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList7.ImageStream")));
+			this->imageList7->TransparentColor = System::Drawing::Color::Transparent;
+			this->imageList7->Images->SetKeyName(0, L"bun-dau-cha-cua-icon.png");
+			this->imageList7->Images->SetKeyName(1, L"bun-dau-gio-sun-icon.png");
+			this->imageList7->Images->SetKeyName(2, L"bun-dau-cha-com-icon.png");
+			this->imageList7->Images->SetKeyName(3, L"bun-dau-thap-cam-icon.png");
+			this->imageList7->Images->SetKeyName(4, L"bun-dau-thit-modified-icon.png");
+			this->imageList7->Images->SetKeyName(5, L"bun-dau-mam-tom-icon.png");
 			// 
 			// StateManagement
 			// 
@@ -728,7 +848,7 @@ public
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(250)), static_cast<System::Int32>(static_cast<System::Byte>(250)),
 				static_cast<System::Int32>(static_cast<System::Byte>(250)));
-			this->ClientSize = System::Drawing::Size(1266, 769);
+			this->ClientSize = System::Drawing::Size(1266, 1055);
 			this->Controls->Add(this->btn6);
 			this->Controls->Add(this->btn5);
 			this->Controls->Add(this->label1);
@@ -740,8 +860,10 @@ public
 			this->Controls->Add(this->soupbtn);
 			this->Controls->Add(this->bundaubtn);
 			this->Controls->Add(this->pictureBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"StateManagement";
-			this->Text = L"StateManagement";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"Menu";
 			this->Load += gcnew System::EventHandler(this, &StateManagement::StateManagement_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
@@ -758,22 +880,25 @@ public
 	private:
 		System::Void pizzabtn_Click_1(System::Object ^ sender, System::EventArgs ^ e)
 		{
+			int prevIndex = index;
 			setIndex(1);
-			updateState();
+			updateState(prevIndex);
 		}
 
 	private:
 		System::Void soupbtn_Click_1(System::Object ^ sender, System::EventArgs ^ e)
 		{
+			int prevIndex = index;
 			setIndex(2);
-			updateState();
+			updateState(prevIndex);
 		}
 
 	private:
 		System::Void bundaubtn_Click(System::Object ^ sender, System::EventArgs ^ e)
 		{
-			// setIndex(3);
-			// updateState();
+			int prevIndex = index;
+			 setIndex(3);
+			 updateState(prevIndex);
 		}
 
 	private:
@@ -783,9 +908,13 @@ public
 				Pizza* newPizza = makePizza(btn1->Text);
 				CartData::add(btn1->Text, newPizza->getDescription(), newPizza->getCost());
 			}
-			else {
+			else if (index ==2) {
 				Soup* newSoup = makeSoup(btn1->Text);
 				CartData::addSoup(btn1->Text, newSoup->getDescription(), newSoup->getCost());
+			}
+			else {
+				BunDauMamTomInterface* newBundaumamtom = makeBunDauMamTom(btn1->Text);
+				CartData::addBundaumamtom(btn1->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
 			}
 			
 				
@@ -806,7 +935,7 @@ public
 
 			int n;
 			if (index == 1) n = CartData::getNumberOfItems();
-			else  n = CartData::getNumberOfSoups();
+			else  if (index == 2)n = CartData::getNumberOfSoups(); else n = CartData::getNumberOfBundaumamtom();
 
 			for (int i = 0; i < n; i++) {
 				layouts[i]->Hide();
@@ -816,9 +945,10 @@ public
 
 			CartData::remove(stoi(id));
 			}
-			else{
+			else if (index == 2) {
 				CartData::removeSoup(stoi(id));
 			}
+			else CartData::removeBundaumamtom(stoi(id));
 
 			updateCart();
 		}
@@ -834,56 +964,80 @@ public
 		}
 	private: System::Void btn2_Click(System::Object^ sender, System::EventArgs^ e) {
 						if (index == 1) {
-				Pizza* newPizza = makePizza(btn1->Text);
+				Pizza* newPizza = makePizza(btn2->Text);
 				CartData::add(btn2->Text, newPizza->getDescription(), newPizza->getCost());
 			}
-						else  {
-							Soup* newSoup = makeSoup(btn1->Text);
+						else  if (index == 2) {
+							Soup* newSoup = makeSoup(btn2->Text);
 							CartData::addSoup(btn2->Text, newSoup->getDescription(), newSoup->getCost());
+						}
+						else {
+							BunDauMamTomInterface* newBundaumamtom = makeBunDauMamTom(btn2->Text);
+							CartData::addBundaumamtom(btn2->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
 						}
 			updateCart();
 	}
 private: System::Void btn4_Click(System::Object^ sender, System::EventArgs^ e) {
 						if (index == 1) {
-				Pizza* newPizza = makePizza(btn1->Text);
+				Pizza* newPizza = makePizza(btn4->Text);
 				CartData::add(btn4->Text, newPizza->getDescription(), newPizza->getCost());
 			}
-						else  {
-							Soup* newSoup = makeSoup(btn1->Text);
+						else if (index == 2) {
+							Soup* newSoup = makeSoup(btn4->Text);
 							CartData::addSoup(btn4->Text, newSoup->getDescription(), newSoup->getCost());
+						}
+						else {
+								BunDauMamTomInterface* newBundaumamtom = makeBunDauMamTom(btn4->Text);
+							CartData::addBundaumamtom(btn4->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
+
 						}
 			updateCart();
 }
 private: System::Void btn3_Click(System::Object^ sender, System::EventArgs^ e) {
 						if (index == 1) {
-				Pizza* newPizza = makePizza(btn1->Text);
+				Pizza* newPizza = makePizza(btn3->Text);
 				CartData::add(btn3->Text, newPizza->getDescription(), newPizza->getCost());
 			}
-						else  {
-							Soup* newSoup = makeSoup(btn1->Text);
+						else  if (index == 2) {
+							Soup* newSoup = makeSoup(btn3->Text);
 							CartData::addSoup(btn3->Text, newSoup->getDescription(), newSoup->getCost());
+						}
+						else {
+											BunDauMamTomInterface* newBundaumamtom = makeBunDauMamTom(btn3->Text);
+							CartData::addBundaumamtom(btn3->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
+
 						}
 			updateCart();
 }
 private: System::Void btn5_Click(System::Object^ sender, System::EventArgs^ e) {
 						if (index == 1) {
-				Pizza* newPizza = makePizza(btn1->Text);
+				Pizza* newPizza = makePizza(btn5->Text);
 				CartData::add(btn5->Text, newPizza->getDescription(), newPizza->getCost());
 			}
-						else {
-							Soup* newSoup = makeSoup(btn1->Text);
+						else if (index == 2) {
+							Soup* newSoup = makeSoup(btn5->Text);
 							CartData::addSoup(btn5->Text, newSoup->getDescription(), newSoup->getCost());
+						}
+						else {
+				BunDauMamTomInterface* newBundaumamtom = makeBunDauMamTom(btn5->Text);
+							CartData::addBundaumamtom(btn5->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
+
 						}
 			updateCart();
 }
 private: System::Void btn6_Click(System::Object^ sender, System::EventArgs^ e) {
 						if (index == 1) {
-				Pizza* newPizza = makePizza(btn1->Text);
+				Pizza* newPizza = makePizza(btn6->Text);
 				CartData::add(btn6->Text, newPizza->getDescription(), newPizza->getCost());
 			}
-						else  {
-							Soup* newSoup = makeSoup(btn1->Text);
+						else  if (index == 2) {
+							Soup* newSoup = makeSoup(btn6->Text);
 							CartData::addSoup(btn6->Text, newSoup->getDescription(), newSoup->getCost());
+						}
+						else {
+											BunDauMamTomInterface* newBundaumamtom = makeBunDauMamTom(btn6->Text);
+							CartData::addBundaumamtom(btn6->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
+
 						}
 			updateCart();
 }

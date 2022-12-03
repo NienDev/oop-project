@@ -19,6 +19,7 @@ void MarshalString ( String ^ s, std::wstring& os ) {
 }
 std::vector<CartItem> CartData::cartData{};
 std::vector<CartItem> CartData::cartSoupData{};
+std::vector<CartItem> CartData::bundaumamtomdata{};
 std::vector<CartItem> CartData::getCartData() {
 	return cartData;
 }
@@ -29,6 +30,10 @@ void CartData::remove(int i) {
 
 void CartData::removeSoup(int i) {
 	cartSoupData.erase(cartSoupData.begin() + i);
+}
+
+void CartData::removeBundaumamtom(int i) {
+	bundaumamtomdata.erase(bundaumamtomdata.begin() + i);
 }
 
 int CartData::find(System::String^ foodName) {
@@ -107,10 +112,46 @@ int i = -1;
 
 }
 
+void CartData::addBundaumamtom(System::String^ foodName ,System::String^ foodDescription, double price) {
+int i = -1;
+	int tmpp = 0;
+	for (CartItem item : bundaumamtomdata) {
+		System::String^ tmp = gcnew String(item.foodName.c_str());
+		if (tmp == foodName) {
+			i = tmpp;
+			break;
+		}
+		tmpp++;
+	}
+	if (i != -1) {
+		bundaumamtomdata[i].amount = bundaumamtomdata[i].amount + 1;
+		//CartItem newItem = cartData[i];
+		//CartData::remove(i);
+		//cartData.push_back(newItem);
+	}
+	else {
+	std::string name = "";
+	MarshalString(foodName, name);
+	std::string description = "";
+	MarshalString(foodDescription, description);
+	CartItem newItem = { name, description, price, 1 };
+	bundaumamtomdata.push_back(newItem);
+	}
+
+}
+
 std::vector<CartItem> CartData::getCartSoupData() {
 	return cartSoupData;
 }
 
 int CartData::getNumberOfSoups() {
 	return cartSoupData.size();
+}
+
+int CartData::getNumberOfBundaumamtom() {
+	return bundaumamtomdata.size();
+}
+
+std::vector<CartItem> CartData::getBundaumamtomData() {
+	return bundaumamtomdata;
 }

@@ -50,10 +50,17 @@ Class Project2.StateManagement: AutoLayout, AnsiClass, Class, Public, BeforeFiel
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
+    MarshalString(String, basic_string<char\,std::char_traits<char>\,std::allocator<char> >* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
+    getImgIndex(basic_string<char\,std::char_traits<char>\,std::allocator<char> >*): PrivateScope, Public, HideBySig
+    resetCart(Int32): PrivateScope, Public, HideBySig
+    updateCart(): PrivateScope, Public, HideBySig
+    makePizza(String): PrivateScope, Public, HideBySig
+    makeSoup(String): PrivateScope, Public, HideBySig
+    makeBunDauMamTom(String): PrivateScope, Public, HideBySig
     isBtn(String): PrivateScope, Public, HideBySig
     setIndex(Int32): PrivateScope, Public, HideBySig
     setDefaultBtn(): PrivateScope, Public, HideBySig
-    updateState(): PrivateScope, Public, HideBySig
+    updateState(Int32): PrivateScope, Public, HideBySig
     isImgBtn(String): PrivateScope, Public, HideBySig
     createCustomBtns(): PrivateScope, Public, HideBySig
 Class Project2.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit

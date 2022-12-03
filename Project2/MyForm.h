@@ -183,9 +183,10 @@ namespace Project2 {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Menu1^ menu = gcnew Menu1;
-		//this->Hide();
+		this->Hide();
 		//menu->ShowDialog();
 		StateManagement^ stateManagement = gcnew StateManagement;
+		
 		stateManagement->ShowDialog();
 	}
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {

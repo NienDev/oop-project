@@ -3,6 +3,7 @@
   Project2.MyForm.resources - Embedded, ContainedInManifestFile, 
   Project2.PizzaMenu.resources - Embedded, ContainedInManifestFile, 
   Project2.Receipt.resources - Embedded, ContainedInManifestFile, 
+  Project2.StateManagement.resources - Embedded, ContainedInManifestFile, 
   Project2.SuccessfulNotification.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly Project2, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
@@ -45,6 +46,26 @@ Class Project2.PizzaMenu: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
 Class Project2.Menu1: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Project2.StateManagement: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    MarshalString(String, basic_string<char\,std::char_traits<char>\,std::allocator<char> >* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
+    getImgIndex(basic_string<char\,std::char_traits<char>\,std::allocator<char> >*): PrivateScope, Public, HideBySig
+    resetCart(Int32): PrivateScope, Public, HideBySig
+    updateCart(): PrivateScope, Public, HideBySig
+    makePizza(String): PrivateScope, Public, HideBySig
+    makeSoup(String): PrivateScope, Public, HideBySig
+    makeBunDauMamTom(String): PrivateScope, Public, HideBySig
+    isBtn(String): PrivateScope, Public, HideBySig
+    setIndex(Int32): PrivateScope, Public, HideBySig
+    setDefaultBtn(): PrivateScope, Public, HideBySig
+    updateState(Int32): PrivateScope, Public, HideBySig
+    isImgBtn(String): PrivateScope, Public, HideBySig
+    createCustomBtns(): PrivateScope, Public, HideBySig
 Class Project2.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Project2.ToggleBtns: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

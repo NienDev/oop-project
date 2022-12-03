@@ -1,2 +1,1 @@
-﻿  cart.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-  Project2.vcxproj -> C:\Users\Nien\Desktop\Project2\x64\Debug\Project2.exe
+﻿LINK : fatal error LNK1104: cannot open file 'C:\Users\Nien\Desktop\Project2\x64\Debug\Project2.exe'

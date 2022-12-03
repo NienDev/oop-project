@@ -16,7 +16,7 @@ public:
     }
     double getCost() override
     {
-        return 2.00;
+        return 2.2  ;
     }
 };
 
@@ -100,7 +100,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + .30;
+        return tempSoup->getCost() + .38;
     }
 };
 
@@ -131,7 +131,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + .45;
+        return tempSoup->getCost() + .71;
     }
 };
 class Garlic : public SToppingDecorator
@@ -146,7 +146,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + .30;
+        return tempSoup->getCost() + .88;
     }
 };
 
@@ -162,7 +162,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + .10;
+        return tempSoup->getCost() + .14;
     }
 };
 
@@ -178,7 +178,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + .50;
+        return tempSoup->getCost() + 1.50;
     }
 };
 class ChickenBroth : public SToppingDecorator
@@ -209,7 +209,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + 1.50;
+        return tempSoup->getCost() + 1.78;
     }
 };
 class Corn : public SToppingDecorator
@@ -224,7 +224,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + .20;
+        return tempSoup->getCost() + .250;
     }
 };
 class Mushrooms : public SToppingDecorator
@@ -239,7 +239,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + .30;
+        return tempSoup->getCost() + .80;
     }
 };
 class Coriander : public SToppingDecorator
@@ -254,7 +254,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + .10;
+        return tempSoup->getCost() + 1.10;
     }
 };
 class RedShallot : public SToppingDecorator
@@ -269,7 +269,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + .20;
+        return tempSoup->getCost() + .24;
     }
 };
 class CornPowder : public SToppingDecorator
@@ -284,7 +284,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + .15;
+        return tempSoup->getCost() + .153;
     }
 };
 class Shrimp : public SToppingDecorator
@@ -315,7 +315,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + .10;
+        return tempSoup->getCost() + .17;
     }
 };
 class Lime : public SToppingDecorator
@@ -330,7 +330,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + .15;
+        return tempSoup->getCost() + .155;
     }
 };
 class KaffirLimeLeaf : public SToppingDecorator
@@ -345,7 +345,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + .20;
+        return tempSoup->getCost() + .22;
     }
 };
 class ThaiChilli : public SToppingDecorator
@@ -360,7 +360,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + .30;
+        return tempSoup->getCost() + .66;
     }
 };
 class EvaporatedMilk : public SToppingDecorator
@@ -375,7 +375,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + .40;
+        return tempSoup->getCost() + .70;
     }
 };
 class WhiteBeans : public SToppingDecorator
@@ -420,7 +420,7 @@ public:
     }
     double getCost()
     {
-        return tempSoup->getCost() + .66;
+        return tempSoup->getCost() + .26;
     }
 };
 class Noodles : public SToppingDecorator
