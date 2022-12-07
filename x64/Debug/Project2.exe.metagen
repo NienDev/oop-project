@@ -27,25 +27,14 @@ Class Project2.Receipt: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     changeDefaultReceipt(): PrivateScope, Public, HideBySig
 Class Project2.Description: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
-    Void .ctor(System.String, System.String, System.String, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String, System.String, Double, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class Project2.SuccessfulNotification: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class Project2.PizzaMenu: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
-    Int32 numberOfItems : Public
-    System.String[] btn_names : Public, Static
+    Boolean isOrder : Public
   Methods:
-    isBtn(String): PrivateScope, Public, HideBySig
-    createCustomBtns(): PrivateScope, Public, HideBySig
-    makePizza(String): PrivateScope, Public, HideBySig
-Class Project2.Menu1: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    updateDescription(): PrivateScope, Public, HideBySig
+    button1_Click_1(Object, EventArgs): PrivateScope, Public, HideBySig
 Class Project2.StateManagement: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -64,6 +53,9 @@ Class Project2.StateManagement: AutoLayout, AnsiClass, Class, Public, BeforeFiel
     isImgBtn(String): PrivateScope, Public, HideBySig
     createCustomBtns(): PrivateScope, Public, HideBySig
 Class Project2.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Project2.SuccessfulNotification: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class Project2.ToggleBtns: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit

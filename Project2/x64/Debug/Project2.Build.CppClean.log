@@ -10,8 +10,10 @@ c:\users\nien\desktop\project2\project2\x64\debug\myform.obj
 c:\users\nien\desktop\project2\project2\x64\debug\menu1.obj
 c:\users\nien\desktop\project2\project2\x64\debug\description.obj
 c:\users\nien\desktop\project2\project2\x64\debug\data.obj
-c:\users\nien\desktop\project2\project2\x64\debug\cart.obj
 c:\users\nien\desktop\project2\project2\x64\debug\cartdata.obj
+c:\users\nien\desktop\project2\project2\x64\debug\cart.obj
+c:\users\nien\desktop\project2\x64\debug\project2.exe
+c:\users\nien\desktop\project2\x64\debug\project2.pdb
 c:\users\nien\desktop\project2\project2\x64\debug\project2.description.resources
 c:\users\nien\desktop\project2\project2\x64\debug\project2.menu1.resources
 c:\users\nien\desktop\project2\project2\x64\debug\project2.myform.resources
@@ -20,8 +22,6 @@ c:\users\nien\desktop\project2\project2\x64\debug\project2.receipt.resources
 c:\users\nien\desktop\project2\project2\x64\debug\project2.statemanagement.resources
 c:\users\nien\desktop\project2\project2\x64\debug\project2.successfulnotification.resources
 c:\users\nien\desktop\project2\project2\x64\debug\project2.res
-c:\users\nien\desktop\project2\x64\debug\project2.pdb
-c:\users\nien\desktop\project2\x64\debug\project2.exe
 c:\users\nien\desktop\project2\project2\x64\debug\project2.tlog\cl.command.1.tlog
 c:\users\nien\desktop\project2\project2\x64\debug\project2.tlog\cl.read.1.tlog
 c:\users\nien\desktop\project2\project2\x64\debug\project2.tlog\cl.write.1.tlog

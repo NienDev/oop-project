@@ -30,8 +30,11 @@ Class Project2.Description: AutoLayout, AnsiClass, Class, Public, BeforeFieldIni
     Void .ctor(System.String, System.String, System.String, Double, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Boolean isOrder : Public
   Methods:
     updateDescription(): PrivateScope, Public, HideBySig
+    button1_Click_1(Object, EventArgs): PrivateScope, Public, HideBySig
 Class Project2.StateManagement: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

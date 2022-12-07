@@ -1,8 +1,1 @@
-﻿  Description.cpp
-  Menu1.cpp
-  MyForm.cpp
-  PizzaMenu.cpp
-  StateManagement.cpp
-  data.cpp
-  Generating Code...
-LINK : fatal error LNK1104: cannot open file 'C:\Users\Nien\Desktop\Project2\x64\Debug\Project2.exe'
+﻿LINK : fatal error LNK1104: cannot open file 'C:\Users\Nien\Desktop\Project2\x64\Debug\Project2.exe'

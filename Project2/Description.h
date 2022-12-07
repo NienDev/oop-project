@@ -1,5 +1,6 @@
 #pragma once
 #include "Receipt.h"
+
 namespace Project2 {
 
 	using namespace System;
@@ -26,7 +27,9 @@ namespace Project2 {
 	private: System::Windows::Forms::ImageList^ imageList2;
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Button^ button1;
 		   System::String^ ingre;
+	public: bool isOrder;
 	public:
 		
 
@@ -71,9 +74,12 @@ void updateDescription() {
 			this->cost = cost;
 			this->index = index;
 				this->imgIndex = imgIndex;
+				this->isOrder = false;
 			InitializeComponent();
 			updateDescription();
 		}
+
+
 			protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -126,19 +132,20 @@ void updateDescription() {
 			this->imageList2 = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Poppins", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(12, 12);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(96, 19);
+			this->label1->Size = System::Drawing::Size(113, 26);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Food Name:";
 			this->label1->Click += gcnew System::EventHandler(this, &Description::label1_Click);
@@ -146,26 +153,26 @@ void updateDescription() {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Poppins", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->label2->Location = System::Drawing::Point(12, 36);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(133, 19);
+			this->label2->Size = System::Drawing::Size(157, 26);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Food Description:";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Poppins", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->label3->Location = System::Drawing::Point(12, 216);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(86, 19);
+			this->label3->Size = System::Drawing::Size(105, 26);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Ingredients";
 			this->label3->Click += gcnew System::EventHandler(this, &Description::label3_Click);
@@ -173,11 +180,11 @@ void updateDescription() {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label4->Font = (gcnew System::Drawing::Font(L"Poppins", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label4->Location = System::Drawing::Point(28, 298);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(62, 19);
+			this->label4->Size = System::Drawing::Size(73, 26);
 			this->label4->TabIndex = 4;
 			this->label4->Text = L"Price: $";
 			this->label4->Click += gcnew System::EventHandler(this, &Description::label4_Click);
@@ -185,12 +192,12 @@ void updateDescription() {
 			// food_name_param
 			// 
 			this->food_name_param->AutoSize = true;
-			this->food_name_param->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB Demi", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->food_name_param->Font = (gcnew System::Drawing::Font(L"Poppins", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->food_name_param->ForeColor = System::Drawing::Color::Black;
 			this->food_name_param->Location = System::Drawing::Point(110, 6);
 			this->food_name_param->Name = L"food_name_param";
-			this->food_name_param->Size = System::Drawing::Size(212, 27);
+			this->food_name_param->Size = System::Drawing::Size(245, 34);
 			this->food_name_param->TabIndex = 5;
 			this->food_name_param->Text = L"Food Name param";
 			// 
@@ -208,12 +215,12 @@ void updateDescription() {
 			// 
 			this->price_param->AllowDrop = true;
 			this->price_param->AutoSize = true;
-			this->price_param->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->price_param->Font = (gcnew System::Drawing::Font(L"Poppins", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->price_param->ForeColor = System::Drawing::Color::Black;
-			this->price_param->Location = System::Drawing::Point(96, 294);
+			this->price_param->Location = System::Drawing::Point(107, 294);
 			this->price_param->Name = L"price_param";
-			this->price_param->Size = System::Drawing::Size(35, 23);
+			this->price_param->Size = System::Drawing::Size(43, 30);
 			this->price_param->TabIndex = 8;
 			this->price_param->Text = L"123";
 			this->price_param->Click += gcnew System::EventHandler(this, &Description::price_param_Click);
@@ -263,7 +270,7 @@ void updateDescription() {
 			// label5
 			// 
 			this->label5->AllowDrop = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label5->Font = (gcnew System::Drawing::Font(L"Poppins", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label5->Location = System::Drawing::Point(13, 238);
 			this->label5->Name = L"label5";
@@ -275,7 +282,7 @@ void updateDescription() {
 			// label6
 			// 
 			this->label6->AllowDrop = true;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Berlin Sans FB", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label6->Font = (gcnew System::Drawing::Font(L"Poppins", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label6->Location = System::Drawing::Point(13, 55);
 			this->label6->Name = L"label6";
@@ -284,11 +291,26 @@ void updateDescription() {
 			this->label6->Text = L"nien";
 			this->label6->Click += gcnew System::EventHandler(this, &Description::description_param_Click);
 			// 
+			// button1
+			// 
+			this->button1->Font = (gcnew System::Drawing::Font(L"Poppins", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->button1->Location = System::Drawing::Point(347, 341);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(115, 39);
+			this->button1->TabIndex = 11;
+			this->button1->Text = L"Order";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Description::button1_Click_1);
+			// 
 			// Description
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(462, 335);
+			this->ClientSize = System::Drawing::Size(462, 380);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->price_param);
@@ -330,6 +352,10 @@ private: System::Void ingredient_Click(System::Object^ sender, System::EventArgs
 private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void price_param_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+public: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	isOrder = true;
+	this->Hide();
 }
 };
 }
