@@ -659,7 +659,7 @@ public
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(StateManagement::typeid));
+			System::ComponentModel::ComponentResourceManager ^ resources = (gcnew System::ComponentModel::ComponentResourceManager(StateManagement::typeid));
 			this->bundaubtn = (gcnew System::Windows::Forms::Button());
 			this->soupbtn = (gcnew System::Windows::Forms::Button());
 			this->pizzabtn = (gcnew System::Windows::Forms::Button());
@@ -678,13 +678,13 @@ public
 			this->imageList5 = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->imageList6 = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->imageList7 = (gcnew System::Windows::Forms::ImageList(this->components));
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize ^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
-			// 
+			//
 			// bundaubtn
-			// 
+			//
 			this->bundaubtn->BackColor = System::Drawing::Color::White;
-			this->bundaubtn->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"bundaubtn.BackgroundImage")));
+			this->bundaubtn->BackgroundImage = (cli::safe_cast<System::Drawing::Image ^>(resources->GetObject(L"bundaubtn.BackgroundImage")));
 			this->bundaubtn->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->bundaubtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->bundaubtn->ForeColor = System::Drawing::Color::White;
@@ -695,10 +695,10 @@ public
 			this->bundaubtn->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
 			this->bundaubtn->UseVisualStyleBackColor = false;
 			this->bundaubtn->Click += gcnew System::EventHandler(this, &StateManagement::bundaubtn_Click);
-			// 
+			//
 			// soupbtn
-			// 
-			this->soupbtn->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"soupbtn.BackgroundImage")));
+			//
+			this->soupbtn->BackgroundImage = (cli::safe_cast<System::Drawing::Image ^>(resources->GetObject(L"soupbtn.BackgroundImage")));
 			this->soupbtn->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->soupbtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->soupbtn->ForeColor = System::Drawing::SystemColors::Control;
@@ -709,10 +709,10 @@ public
 			this->soupbtn->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
 			this->soupbtn->UseVisualStyleBackColor = true;
 			this->soupbtn->Click += gcnew System::EventHandler(this, &StateManagement::soupbtn_Click_1);
-			// 
+			//
 			// pizzabtn
-			// 
-			this->pizzabtn->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pizzabtn.BackgroundImage")));
+			//
+			this->pizzabtn->BackgroundImage = (cli::safe_cast<System::Drawing::Image ^>(resources->GetObject(L"pizzabtn.BackgroundImage")));
 			this->pizzabtn->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->pizzabtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->pizzabtn->ForeColor = System::Drawing::SystemColors::Control;
@@ -723,15 +723,15 @@ public
 			this->pizzabtn->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
 			this->pizzabtn->UseVisualStyleBackColor = true;
 			this->pizzabtn->Click += gcnew System::EventHandler(this, &StateManagement::pizzabtn_Click_1);
-			// 
+			//
 			// btn4
-			// 
+			//
 			this->btn4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->btn4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btn4->Font = (gcnew System::Drawing::Font(L"Poppins", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+																											static_cast<System::Byte>(0)));
 			this->btn4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+																															 static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->btn4->Location = System::Drawing::Point(35, 439);
 			this->btn4->Name = L"btn4";
 			this->btn4->Size = System::Drawing::Size(200, 348);
@@ -739,15 +739,15 @@ public
 			this->btn4->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
 			this->btn4->UseVisualStyleBackColor = true;
 			this->btn4->Click += gcnew System::EventHandler(this, &StateManagement::btn4_Click);
-			// 
+			//
 			// btn3
-			// 
+			//
 			this->btn3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->btn3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btn3->Font = (gcnew System::Drawing::Font(L"Poppins", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+																											static_cast<System::Byte>(0)));
 			this->btn3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+																															 static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->btn3->Location = System::Drawing::Point(251, 439);
 			this->btn3->Name = L"btn3";
 			this->btn3->Size = System::Drawing::Size(200, 348);
@@ -755,15 +755,15 @@ public
 			this->btn3->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
 			this->btn3->UseVisualStyleBackColor = true;
 			this->btn3->Click += gcnew System::EventHandler(this, &StateManagement::btn3_Click);
-			// 
+			//
 			// btn2
-			// 
+			//
 			this->btn2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->btn2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btn2->Font = (gcnew System::Drawing::Font(L"Poppins", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+																											static_cast<System::Byte>(0)));
 			this->btn2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+																															 static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->btn2->Location = System::Drawing::Point(241, 85);
 			this->btn2->Name = L"btn2";
 			this->btn2->Size = System::Drawing::Size(200, 348);
@@ -771,16 +771,16 @@ public
 			this->btn2->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
 			this->btn2->UseVisualStyleBackColor = true;
 			this->btn2->Click += gcnew System::EventHandler(this, &StateManagement::btn2_Click);
-			// 
+			//
 			// btn1
-			// 
+			//
 			this->btn1->BackColor = System::Drawing::Color::White;
 			this->btn1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->btn1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btn1->Font = (gcnew System::Drawing::Font(L"Poppins", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+																											static_cast<System::Byte>(0)));
 			this->btn1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+																															 static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->btn1->Location = System::Drawing::Point(35, 85);
 			this->btn1->Name = L"btn1";
 			this->btn1->Size = System::Drawing::Size(200, 348);
@@ -788,10 +788,10 @@ public
 			this->btn1->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
 			this->btn1->UseVisualStyleBackColor = false;
 			this->btn1->Click += gcnew System::EventHandler(this, &StateManagement::btn1_Click);
-			// 
+			//
 			// imageList1
-			// 
-			this->imageList1->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList1.ImageStream")));
+			//
+			this->imageList1->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer ^>(resources->GetObject(L"imageList1.ImageStream")));
 			this->imageList1->TransparentColor = System::Drawing::Color::Transparent;
 			this->imageList1->Images->SetKeyName(0, L"pizza-btn.png");
 			this->imageList1->Images->SetKeyName(1, L"pizza-test.png");
@@ -799,10 +799,10 @@ public
 			this->imageList1->Images->SetKeyName(3, L"soup-btn-active.png");
 			this->imageList1->Images->SetKeyName(4, L"bundau-btn.png");
 			this->imageList1->Images->SetKeyName(5, L"bundau-btn-active.png");
-			// 
+			//
 			// imageList2
-			// 
-			this->imageList2->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList2.ImageStream")));
+			//
+			this->imageList2->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer ^>(resources->GetObject(L"imageList2.ImageStream")));
 			this->imageList2->TransparentColor = System::Drawing::Color::Transparent;
 			this->imageList2->Images->SetKeyName(0, L"Supreme-Pizza.png");
 			this->imageList2->Images->SetKeyName(1, L"prawn-pizza.png");
@@ -810,10 +810,10 @@ public
 			this->imageList2->Images->SetKeyName(3, L"meat-lover-pizza.png");
 			this->imageList2->Images->SetKeyName(4, L"pine-pizza.png");
 			this->imageList2->Images->SetKeyName(5, L"pepperoni-pizza.png");
-			// 
+			//
 			// imageList3
-			// 
-			this->imageList3->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList3.ImageStream")));
+			//
+			this->imageList3->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer ^>(resources->GetObject(L"imageList3.ImageStream")));
 			this->imageList3->TransparentColor = System::Drawing::Color::Transparent;
 			this->imageList3->Images->SetKeyName(0, L"chicken-soup.png");
 			this->imageList3->Images->SetKeyName(1, L"tomato-soup.png");
@@ -821,34 +821,34 @@ public
 			this->imageList3->Images->SetKeyName(3, L"tom-yum-soup.png");
 			this->imageList3->Images->SetKeyName(4, L"White-Bean-Chicken-Soup.png");
 			this->imageList3->Images->SetKeyName(5, L"Italian-Meatball-Soup.png");
-			// 
+			//
 			// pictureBox1
-			// 
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			//
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image ^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(767, -9);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(503, 998);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 15;
 			this->pictureBox1->TabStop = false;
-			// 
+			//
 			// label1
-			// 
+			//
 			this->label1->AutoSize = true;
 			this->label1->BackColor = System::Drawing::Color::White;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Poppins", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+																												static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(236)), static_cast<System::Int32>(static_cast<System::Byte>(125)),
-				static_cast<System::Int32>(static_cast<System::Byte>(5)));
+																																 static_cast<System::Int32>(static_cast<System::Byte>(5)));
 			this->label1->Location = System::Drawing::Point(778, 12);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(225, 42);
 			this->label1->TabIndex = 16;
 			this->label1->Text = L"Current Order";
-			// 
+			//
 			// imageList4
-			// 
-			this->imageList4->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList4.ImageStream")));
+			//
+			this->imageList4->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer ^>(resources->GetObject(L"imageList4.ImageStream")));
 			this->imageList4->TransparentColor = System::Drawing::Color::Transparent;
 			this->imageList4->Images->SetKeyName(0, L"supreme-pizza-icon.png");
 			this->imageList4->Images->SetKeyName(1, L"prawn-pizza-icon.png");
@@ -856,15 +856,15 @@ public
 			this->imageList4->Images->SetKeyName(3, L"meat-lover-pizza-icon.png");
 			this->imageList4->Images->SetKeyName(4, L"pepperoni-pizza-icon.png");
 			this->imageList4->Images->SetKeyName(5, L"pine-pizza-icon.png");
-			// 
+			//
 			// btn5
-			// 
+			//
 			this->btn5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->btn5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btn5->Font = (gcnew System::Drawing::Font(L"Poppins", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+																											static_cast<System::Byte>(0)));
 			this->btn5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+																															 static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->btn5->Location = System::Drawing::Point(449, 85);
 			this->btn5->Name = L"btn5";
 			this->btn5->Size = System::Drawing::Size(200, 348);
@@ -872,15 +872,15 @@ public
 			this->btn5->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
 			this->btn5->UseVisualStyleBackColor = true;
 			this->btn5->Click += gcnew System::EventHandler(this, &StateManagement::btn5_Click);
-			// 
+			//
 			// btn6
-			// 
+			//
 			this->btn6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->btn6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btn6->Font = (gcnew System::Drawing::Font(L"Poppins", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+																											static_cast<System::Byte>(0)));
 			this->btn6->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+																															 static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->btn6->Location = System::Drawing::Point(490, 439);
 			this->btn6->Name = L"btn6";
 			this->btn6->Size = System::Drawing::Size(200, 348);
@@ -888,10 +888,10 @@ public
 			this->btn6->TextAlign = System::Drawing::ContentAlignment::BottomLeft;
 			this->btn6->UseVisualStyleBackColor = true;
 			this->btn6->Click += gcnew System::EventHandler(this, &StateManagement::btn6_Click);
-			// 
+			//
 			// imageList5
-			// 
-			this->imageList5->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList5.ImageStream")));
+			//
+			this->imageList5->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer ^>(resources->GetObject(L"imageList5.ImageStream")));
 			this->imageList5->TransparentColor = System::Drawing::Color::Transparent;
 			this->imageList5->Images->SetKeyName(0, L"chicken-soup-icon.png");
 			this->imageList5->Images->SetKeyName(1, L"crab-soup-icon.png");
@@ -899,10 +899,10 @@ public
 			this->imageList5->Images->SetKeyName(3, L"tomato-soup-icon.png");
 			this->imageList5->Images->SetKeyName(4, L"tom-yum-soup-icon.png");
 			this->imageList5->Images->SetKeyName(5, L"White-Bean-Chicken-Soup-icon.png");
-			// 
+			//
 			// imageList6
-			// 
-			this->imageList6->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList6.ImageStream")));
+			//
+			this->imageList6->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer ^>(resources->GetObject(L"imageList6.ImageStream")));
 			this->imageList6->TransparentColor = System::Drawing::Color::Transparent;
 			this->imageList6->Images->SetKeyName(0, L"bun-dau-mam-tom.png");
 			this->imageList6->Images->SetKeyName(1, L"bun-dau-thit.png");
@@ -910,10 +910,10 @@ public
 			this->imageList6->Images->SetKeyName(3, L"bun-dau-gio-sun.png");
 			this->imageList6->Images->SetKeyName(4, L"bun-dau-cha-cua.png");
 			this->imageList6->Images->SetKeyName(5, L"bun-dau-thap-cam.png");
-			// 
+			//
 			// imageList7
-			// 
-			this->imageList7->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList7.ImageStream")));
+			//
+			this->imageList7->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer ^>(resources->GetObject(L"imageList7.ImageStream")));
 			this->imageList7->TransparentColor = System::Drawing::Color::Transparent;
 			this->imageList7->Images->SetKeyName(0, L"bun-dau-cha-cua-icon.png");
 			this->imageList7->Images->SetKeyName(1, L"bun-dau-gio-sun-icon.png");
@@ -921,13 +921,13 @@ public
 			this->imageList7->Images->SetKeyName(3, L"bun-dau-thap-cam-icon.png");
 			this->imageList7->Images->SetKeyName(4, L"bun-dau-thit-modified-icon.png");
 			this->imageList7->Images->SetKeyName(5, L"bun-dau-mam-tom-icon.png");
-			// 
+			//
 			// StateManagement
-			// 
+			//
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(250)), static_cast<System::Int32>(static_cast<System::Byte>(250)),
-				static_cast<System::Int32>(static_cast<System::Byte>(250)));
+																												 static_cast<System::Int32>(static_cast<System::Byte>(250)));
 			this->ClientSize = System::Drawing::Size(1266, 1055);
 			this->Controls->Add(this->btn6);
 			this->Controls->Add(this->btn5);
@@ -940,15 +940,14 @@ public
 			this->Controls->Add(this->soupbtn);
 			this->Controls->Add(this->bundaubtn);
 			this->Controls->Add(this->pictureBox1);
-			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Icon = (cli::safe_cast<System::Drawing::Icon ^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"StateManagement";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Menu";
 			this->Load += gcnew System::EventHandler(this, &StateManagement::StateManagement_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize ^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
-
 		}
 #pragma endregion
 
@@ -984,9 +983,9 @@ public
 	private:
 		System::Void btn1_Click(System::Object ^ sender, System::EventArgs ^ e)
 		{
-			System::String ^name;
-			System::String^ des;
-				System::String^ ingre;
+			System::String ^ name;
+			System::String ^ des;
+			System::String ^ ingre;
 			double cost;
 			if (index == 1)
 			{
@@ -994,17 +993,17 @@ public
 				std::vector<Item> data = data::getPizzas();
 				Pizza *newPizza = makePizza(btn1->Text);
 				des = gcnew String(data[0].description.c_str());
-				 name = btn1->Text;
-				 ingre = newPizza->getDescription();
-				 cost = newPizza->getCost();
-				 		Description^ description = gcnew Description(name, des, ingre, cost, index, 0);
-			description->ShowDialog();
-			if (description->isOrder) {
-				
-				CartData::add(btn1->Text, newPizza->getDescription(), newPizza->getCost());
-				updateCart();
-			}
+				name = btn1->Text;
+				ingre = newPizza->getDescription();
+				cost = newPizza->getCost();
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 0, imageList2, imageList3, imageList6);
+				description->ShowDialog();
+				if (description->isOrder)
+				{
 
+					CartData::add(btn1->Text, newPizza->getDescription(), newPizza->getCost());
+					updateCart();
+				}
 			}
 			else if (index == 2)
 			{
@@ -1015,14 +1014,14 @@ public
 				name = btn1->Text;
 				ingre = newSoup->getDescription();
 				cost = newSoup->getCost();
-					Description^ description = gcnew Description(name, des, ingre, cost, index, 0);
-			description->ShowDialog();
-			if (description->isOrder) {
-				
-				CartData::addSoup(btn1->Text, newSoup->getDescription(), newSoup->getCost());
-				updateCart();
-			}
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 0, imageList2, imageList3, imageList6);
+				description->ShowDialog();
+				if (description->isOrder)
+				{
 
+					CartData::addSoup(btn1->Text, newSoup->getDescription(), newSoup->getCost());
+					updateCart();
+				}
 			}
 			else
 			{
@@ -1033,16 +1032,16 @@ public
 				name = btn1->Text;
 				ingre = newBundaumamtom->getDescription();
 				cost = newBundaumamtom->getCost();
-	Description^ description = gcnew Description(name, des, ingre, cost, index, 0);
-			description->ShowDialog();
-			if (description->isOrder) {
-				
-				CartData::addBundaumamtom(btn1->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
-				updateCart();
-			}
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 0, imageList2, imageList3, imageList6);
+				description->ShowDialog();
+				if (description->isOrder)
+				{
 
-			}
+					CartData::addBundaumamtom(btn1->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
+					updateCart();
 				}
+			}
+		}
 
 	private:
 		System::Void exitBtn_Click(System::Object ^ sender, System::EventArgs ^ e)
@@ -1097,205 +1096,212 @@ public
 	private:
 		System::Void btn2_Click(System::Object ^ sender, System::EventArgs ^ e)
 		{
-			System::String^ name;
-			System::String^ ingre;
-			System::String^ des;
+			System::String ^ name;
+			System::String ^ ingre;
+			System::String ^ des;
 			double cost;
 			if (index == 1)
 			{
 				Pizza *newPizza = makePizza(btn2->Text);
 				std::vector<Item> data = data::getPizzas();
-				 des = gcnew String(data[1].description.c_str());
-				 name = btn2->Text;
-				 ingre = newPizza->getDescription();
-				 cost = newPizza->getCost();
-							Description ^ description = gcnew Description(name, des, ingre, cost, index, 0);
-			description->ShowDialog();
-			if (description->isOrder) {
+				des = gcnew String(data[1].description.c_str());
+				name = btn2->Text;
+				ingre = newPizza->getDescription();
+				cost = newPizza->getCost();
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 1, imageList2, imageList3, imageList6);
+				description->ShowDialog();
+				if (description->isOrder)
+				{
 
-				CartData::add(btn2->Text, newPizza->getDescription(), newPizza->getCost());
-				updateCart();
-			}
-
+					CartData::add(btn2->Text, newPizza->getDescription(), newPizza->getCost());
+					updateCart();
+				}
 			}
 			else if (index == 2)
 			{
 				Soup *newSoup = makeSoup(btn2->Text);
 				std::vector<Item> data = data::getSoups();
-				 des = gcnew String(data[1].description.c_str());
-				 name = btn2->Text;
-				 ingre = newSoup->getDescription();
-				 cost = newSoup->getCost();
-						Description ^ description = gcnew Description(name, des, ingre, cost, index, 0);
-			description->ShowDialog();
-			if (description->isOrder) {
+				des = gcnew String(data[1].description.c_str());
+				name = btn2->Text;
+				ingre = newSoup->getDescription();
+				cost = newSoup->getCost();
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 1, imageList2, imageList3, imageList6);
+				description->ShowDialog();
+				if (description->isOrder)
+				{
 
-				CartData::addSoup(btn2->Text, newSoup->getDescription(), newSoup->getCost());
-				updateCart();
-			}
-
+					CartData::addSoup(btn2->Text, newSoup->getDescription(), newSoup->getCost());
+					updateCart();
+				}
 			}
 			else
 			{
 				BunDauMamTomInterface *newBundaumamtom = makeBunDauMamTom(btn2->Text);
 				std::vector<Item> data = data::getBunDauMamTom();
-				  des = gcnew String(data[1].description.c_str());
-				  name = btn2->Text;
-				  ingre = newBundaumamtom->getDescription();
-				 cost = newBundaumamtom->getCost();
-					Description ^ description = gcnew Description(name, des, ingre, cost, index, 0);
-			description->ShowDialog();
-			if (description->isOrder) {
+				des = gcnew String(data[1].description.c_str());
+				name = btn2->Text;
+				ingre = newBundaumamtom->getDescription();
+				cost = newBundaumamtom->getCost();
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 1, imageList2, imageList3, imageList6);
+				description->ShowDialog();
+				if (description->isOrder)
+				{
 
-				CartData::addBundaumamtom(btn2->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
-				updateCart();
+					CartData::addBundaumamtom(btn2->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
+					updateCart();
+				}
 			}
-
-			}
-					//updateCart();
+			// updateCart();
 		}
 
 	private:
 		System::Void btn4_Click(System::Object ^ sender, System::EventArgs ^ e)
 		{
-			System::String^ des;
-			System::String^ name;
-			System::String^ ingre;
+			System::String ^ des;
+			System::String ^ name;
+			System::String ^ ingre;
 			double cost;
 			if (index == 1)
 			{
 				Pizza *newPizza = makePizza(btn4->Text);
 				std::vector<Item> data = data::getPizzas();
-				 des = gcnew String(data[3].description.c_str());
-				 name = btn4->Text;
-				 ingre = newPizza->getDescription();
-				 cost = newPizza->getCost();
-				 Description^ description = gcnew Description(name, des, ingre, cost, index, 3);
-				 description->ShowDialog();
-				 if (description->isOrder) {
+				des = gcnew String(data[3].description.c_str());
+				name = btn4->Text;
+				ingre = newPizza->getDescription();
+				cost = newPizza->getCost();
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 3, imageList2, imageList3, imageList6);
+				description->ShowDialog();
+				if (description->isOrder)
+				{
 
-				CartData::add(btn4->Text, newPizza->getDescription(), newPizza->getCost());
-					 updateCart();
-				 }
+					CartData::add(btn4->Text, newPizza->getDescription(), newPizza->getCost());
+					updateCart();
+				}
 			}
 			else if (index == 2)
 			{
 				Soup *newSoup = makeSoup(btn4->Text);
 				std::vector<Item> data = data::getSoups();
-				 des = gcnew String(data[3].description.c_str());
-				 name = btn4->Text;
-				 ingre = newSoup->getDescription();
-				 cost = newSoup->getCost();
-				Description ^ description = gcnew Description(name, des, ingre, cost, index, 3);
-			description->ShowDialog();
-			if (description->isOrder) {
+				des = gcnew String(data[3].description.c_str());
+				name = btn4->Text;
+				ingre = newSoup->getDescription();
+				cost = newSoup->getCost();
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 3, imageList2, imageList3, imageList6);
+				description->ShowDialog();
+				if (description->isOrder)
+				{
 
-				CartData::addSoup(btn4->Text, newSoup->getDescription(), newSoup->getCost());
-				updateCart();
-			}
+					CartData::addSoup(btn4->Text, newSoup->getDescription(), newSoup->getCost());
+					updateCart();
+				}
 			}
 			else
 			{
 				BunDauMamTomInterface *newBundaumamtom = makeBunDauMamTom(btn4->Text);
 				std::vector<Item> data = data::getBunDauMamTom();
-				 des = gcnew String(data[3].description.c_str());
-				 name = btn4->Text;
-				 ingre = newBundaumamtom->getDescription();
-				 cost = newBundaumamtom->getCost();
-		Description ^ description = gcnew Description(name, des, ingre, cost, index, 3);
-			description->ShowDialog();
-			if (description->isOrder) {
+				des = gcnew String(data[3].description.c_str());
+				name = btn4->Text;
+				ingre = newBundaumamtom->getDescription();
+				cost = newBundaumamtom->getCost();
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 3, imageList2, imageList3, imageList6);
+				description->ShowDialog();
+				if (description->isOrder)
+				{
 
-				CartData::addBundaumamtom(btn4->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
-				updateCart();
+					CartData::addBundaumamtom(btn4->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
+					updateCart();
+				}
 			}
-			}
-	
-			//updateCart();
+
+			// updateCart();
 		}
 
 	private:
 		System::Void btn3_Click(System::Object ^ sender, System::EventArgs ^ e)
 		{
-			System::String^ name;
-			System::String^ des;
-			System::String^ ingre;
+			System::String ^ name;
+			System::String ^ des;
+			System::String ^ ingre;
 			double cost;
 			if (index == 1)
 			{
 				Pizza *newPizza = makePizza(btn3->Text);
 				std::vector<Item> data = data::getPizzas();
-				 des = gcnew String(data[2].description.c_str());
-				 name = btn3->Text;
-				 ingre = newPizza->getDescription();
-				 cost = newPizza->getCost();
- Description^ description = gcnew Description(name, des, ingre, cost, index, 2);
-				 description->ShowDialog();
-				 if (description->isOrder) {
+				des = gcnew String(data[2].description.c_str());
+				name = btn3->Text;
+				ingre = newPizza->getDescription();
+				cost = newPizza->getCost();
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 2, imageList2, imageList3, imageList6);
+				description->ShowDialog();
+				if (description->isOrder)
+				{
 
-				CartData::add(btn3->Text, newPizza->getDescription(), newPizza->getCost());
-				updateCart();
-				 }
+					CartData::add(btn3->Text, newPizza->getDescription(), newPizza->getCost());
+					updateCart();
+				}
 			}
 			else if (index == 2)
 			{
 				Soup *newSoup = makeSoup(btn3->Text);
 				std::vector<Item> data = data::getSoups();
-				 des = gcnew String(data[2].description.c_str());
-				 name = btn3->Text;
+				des = gcnew String(data[2].description.c_str());
+				name = btn3->Text;
 				ingre = newSoup->getDescription();
-				 cost = newSoup->getCost();
-				 Description^ description = gcnew Description(name, des, ingre, cost, index, 2);
-				 description->ShowDialog();
-				 if (description->isOrder) {
+				cost = newSoup->getCost();
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 2,imageList2, imageList3, imageList6);
+				description->ShowDialog();
+				if (description->isOrder)
+				{
 
-				CartData::addSoup(btn3->Text, newSoup->getDescription(), newSoup->getCost());
-					 updateCart();
-				 }
+					CartData::addSoup(btn3->Text, newSoup->getDescription(), newSoup->getCost());
+					updateCart();
+				}
 			}
 			else
 			{
 				BunDauMamTomInterface *newBundaumamtom = makeBunDauMamTom(btn3->Text);
 				std::vector<Item> data = data::getPizzas();
-				 des = gcnew String(data[2].description.c_str());
-				 name = btn3->Text;
-				 ingre = newBundaumamtom->getDescription();
-				 cost = newBundaumamtom->getCost();
+				des = gcnew String(data[2].description.c_str());
+				name = btn3->Text;
+				ingre = newBundaumamtom->getDescription();
+				cost = newBundaumamtom->getCost();
 
-				 Description^ description = gcnew Description(name, des, ingre, cost, index, 2);
-				 description->ShowDialog();
-				 if (description->isOrder) {
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 2, imageList2, imageList3, imageList6);
+				description->ShowDialog();
+				if (description->isOrder)
+				{
 
-				CartData::addBundaumamtom(btn3->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
-				updateCart();
-				 }
+					CartData::addBundaumamtom(btn3->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
+					updateCart();
+				}
 			}
-		
-			//updateCart();
+
+			// updateCart();
 		}
 
 	private:
 		System::Void btn5_Click(System::Object ^ sender, System::EventArgs ^ e)
 		{
-			System::String^ des;
-			System::String^ name;
-			System::String^ ingre;
+			System::String ^ des;
+			System::String ^ name;
+			System::String ^ ingre;
 			double cost;
 			if (index == 1)
 			{
 				Pizza *newPizza = makePizza(btn5->Text);
 				std::vector<Item> data = data::getPizzas();
-				 des = gcnew String(data[4].description.c_str());
-				 name = btn5->Text;
-				 ingre = newPizza->getDescription();
+				des = gcnew String(data[4].description.c_str());
+				name = btn5->Text;
+				ingre = newPizza->getDescription();
 				cost = newPizza->getCost();
-			Description ^ description = gcnew Description(name, des, ingre, cost, index, 4);
-			description->ShowDialog();
-			if (description->isOrder) {
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 4, imageList2, imageList3, imageList6);
+				description->ShowDialog();
+				if (description->isOrder)
+				{
 
-				CartData::add(btn5->Text, newPizza->getDescription(), newPizza->getCost());
-				updateCart();
-			}
+					CartData::add(btn5->Text, newPizza->getDescription(), newPizza->getCost());
+					updateCart();
+				}
 			}
 			else if (index == 2)
 			{
@@ -1305,41 +1311,43 @@ public
 				System::String ^ name = btn5->Text;
 				System::String ^ ingre = newSoup->getDescription();
 				double cost = newSoup->getCost();
-							Description ^ description = gcnew Description(name, des, ingre, cost, index, 4);
-			description->ShowDialog();
-			if (description->isOrder) {
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 4, imageList2, imageList3, imageList6);
+				description->ShowDialog();
+				if (description->isOrder)
+				{
 
-				CartData::addSoup(btn5->Text, newSoup->getDescription(), newSoup->getCost());
-				updateCart();
-			}
+					CartData::addSoup(btn5->Text, newSoup->getDescription(), newSoup->getCost());
+					updateCart();
+				}
 			}
 			else
 			{
-				BunDauMamTomInterface* newBundaumamtom = makeBunDauMamTom(btn5->Text);
+				BunDauMamTomInterface *newBundaumamtom = makeBunDauMamTom(btn5->Text);
 				std::vector<Item> data = data::getBunDauMamTom();
 				System::String ^ des = gcnew String(data[4].description.c_str());
 				System::String ^ name = btn5->Text;
 				System::String ^ ingre = newBundaumamtom->getDescription();
 				double cost = newBundaumamtom->getCost();
-			
-			Description ^ description = gcnew Description(name, des, ingre, cost, index, 4);
-			description->ShowDialog();
-			if (description->isOrder) {
 
-				CartData::addBundaumamtom(btn5->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
-				updateCart();
-			}
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 4, imageList2, imageList3, imageList6);
+				description->ShowDialog();
+				if (description->isOrder)
+				{
+
+					CartData::addBundaumamtom(btn5->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
+					updateCart();
+				}
 			}
 
-			//updateCart();
+			// updateCart();
 		}
 
 	private:
 		System::Void btn6_Click(System::Object ^ sender, System::EventArgs ^ e)
 		{
-			System::String^ des = "";
-			System::String^ name = "";
-			System::String^ ingre = "";
+			System::String ^ des = "";
+			System::String ^ name = "";
+			System::String ^ ingre = "";
 			double cost;
 			if (index == 1)
 			{
@@ -1349,11 +1357,12 @@ public
 				name = btn6->Text;
 				ingre = newPizza->getDescription();
 				cost = newPizza->getCost();
-				 				 Description ^ description = gcnew Description(name, des, ingre, cost, index, 5);
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 5, imageList2, imageList3, imageList6);
 				description->ShowDialog();
-				if (description->isOrder) {
+				if (description->isOrder)
+				{
 
-				CartData::add(btn6->Text, newPizza->getDescription(), newPizza->getCost());
+					CartData::add(btn6->Text, newPizza->getDescription(), newPizza->getCost());
 					updateCart();
 				}
 			}
@@ -1361,15 +1370,16 @@ public
 			{
 				Soup *newSoup = makeSoup(btn6->Text);
 				std::vector<Item> data = data::getSoups();
-				 des = gcnew String(data[5].description.c_str());
-				 name = btn6->Text;
-				 ingre = newSoup->getDescription();
-				 cost = newSoup->getCost();
-				 				 Description ^ description = gcnew Description(name, des, ingre, cost, index, 5);
+				des = gcnew String(data[5].description.c_str());
+				name = btn6->Text;
+				ingre = newSoup->getDescription();
+				cost = newSoup->getCost();
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 5, imageList2, imageList3, imageList6);
 				description->ShowDialog();
-				if (description->isOrder) {
+				if (description->isOrder)
+				{
 
-				CartData::addSoup(btn6->Text, newSoup->getDescription(), newSoup->getCost());
+					CartData::addSoup(btn6->Text, newSoup->getDescription(), newSoup->getCost());
 					updateCart();
 				}
 			}
@@ -1377,22 +1387,21 @@ public
 			{
 				BunDauMamTomInterface *newBundaumamtom = makeBunDauMamTom(btn6->Text);
 				std::vector<Item> data = data::getBunDauMamTom();
-				  des = gcnew String(data[5].description.c_str());
-				  name = btn6->Text;
-				 ingre = newBundaumamtom->getDescription();
-				 cost = newBundaumamtom->getCost();
-				 Description ^ description = gcnew Description(name, des, ingre, cost, index, 5);
+				des = gcnew String(data[5].description.c_str());
+				name = btn6->Text;
+				ingre = newBundaumamtom->getDescription();
+				cost = newBundaumamtom->getCost();
+				Description ^ description = gcnew Description(name, des, ingre, cost, index, 5, imageList2, imageList3, imageList6);
 				description->ShowDialog();
-				if (description->isOrder) {
+				if (description->isOrder)
+				{
 
-				CartData::addBundaumamtom(btn6->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
+					CartData::addBundaumamtom(btn6->Text, newBundaumamtom->getDescription(), newBundaumamtom->getCost());
 					updateCart();
 				}
 			}
 
-				
-
-			//updateCart();
+			// updateCart();
 		}
 	};
 }

@@ -27,6 +27,7 @@ Class Project2.Receipt: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     changeDefaultReceipt(): PrivateScope, Public, HideBySig
 Class Project2.Description: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
+    Void .ctor(System.String, System.String, System.String, Double, Int32, Int32, System.Windows.Forms.ImageList, System.Windows.Forms.ImageList, System.Windows.Forms.ImageList): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(System.String, System.String, System.String, Double, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

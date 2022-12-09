@@ -79,6 +79,21 @@ void updateDescription() {
 			updateDescription();
 		}
 
+		Description(System::String^ name, System::String^ des, System::String^ ingre, double cost, int index, int imgIndex, ImageList ^_imageList2, ImageList ^_imageList3, ImageList ^_imageList6) {
+			imageList2 = _imageList2;
+			imageList3 = _imageList3;
+			imageList6 = _imageList6;
+			this->name = name;
+			this->des = des;
+			this->ingre = ingre;
+			this->cost = cost;
+			this->index = index;
+			this->imgIndex = imgIndex;
+			this->isOrder = false;
+			InitializeComponent();
+			updateDescription();
+		}
+
 
 			protected:
 		/// <summary>
@@ -127,9 +142,9 @@ void updateDescription() {
 			this->description_param = (gcnew System::Windows::Forms::Label());
 			this->price_param = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->imageList6 = (gcnew System::Windows::Forms::ImageList(this->components));
-			this->imageList3 = (gcnew System::Windows::Forms::ImageList(this->components));
-			this->imageList2 = (gcnew System::Windows::Forms::ImageList(this->components));
+			//this->imageList6 = (gcnew System::Windows::Forms::ImageList(this->components));
+			//this->imageList3 = (gcnew System::Windows::Forms::ImageList(this->components));
+			//this->imageList2 = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -236,36 +251,36 @@ void updateDescription() {
 			// 
 			// imageList6
 			// 
-			this->imageList6->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList6.ImageStream")));
+	/*		this->imageList6->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList6.ImageStream")));
 			this->imageList6->TransparentColor = System::Drawing::Color::Transparent;
 			this->imageList6->Images->SetKeyName(0, L"bun-dau-mam-tom.png");
 			this->imageList6->Images->SetKeyName(1, L"bun-dau-thit.png");
 			this->imageList6->Images->SetKeyName(2, L"bun-dau-cha-com.png");
 			this->imageList6->Images->SetKeyName(3, L"bun-dau-gio-sun.png");
 			this->imageList6->Images->SetKeyName(4, L"bun-dau-cha-cua.png");
-			this->imageList6->Images->SetKeyName(5, L"bun-dau-thap-cam.png");
+			this->imageList6->Images->SetKeyName(5, L"bun-dau-thap-cam.png");*/
 			// 
 			// imageList3
 			// 
-			this->imageList3->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList3.ImageStream")));
+		/*	this->imageList3->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList3.ImageStream")));
 			this->imageList3->TransparentColor = System::Drawing::Color::Transparent;
 			this->imageList3->Images->SetKeyName(0, L"chicken-soup.png");
 			this->imageList3->Images->SetKeyName(1, L"tomato-soup.png");
 			this->imageList3->Images->SetKeyName(2, L"crab-soup.png");
 			this->imageList3->Images->SetKeyName(3, L"tom-yum-soup.png");
 			this->imageList3->Images->SetKeyName(4, L"White-Bean-Chicken-Soup.png");
-			this->imageList3->Images->SetKeyName(5, L"Italian-Meatball-Soup.png");
+			this->imageList3->Images->SetKeyName(5, L"Italian-Meatball-Soup.png");*/
 			// 
 			// imageList2
 			// 
-			this->imageList2->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList2.ImageStream")));
+		/*	this->imageList2->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList2.ImageStream")));
 			this->imageList2->TransparentColor = System::Drawing::Color::Transparent;
 			this->imageList2->Images->SetKeyName(0, L"Supreme-Pizza.png");
 			this->imageList2->Images->SetKeyName(1, L"prawn-pizza.png");
 			this->imageList2->Images->SetKeyName(2, L"kale-pizza.png");
 			this->imageList2->Images->SetKeyName(3, L"meat-lover-pizza.png");
 			this->imageList2->Images->SetKeyName(4, L"pine-pizza.png");
-			this->imageList2->Images->SetKeyName(5, L"pepperoni-pizza.png");
+			this->imageList2->Images->SetKeyName(5, L"pepperoni-pizza.png");*/
 			// 
 			// label5
 			// 

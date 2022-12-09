@@ -1,6 +1,8 @@
 c:\users\nien\desktop\project2\project2\x64\release\vc143.pdb
 c:\users\nien\desktop\project2\project2\x64\release\.netframework,version=v4.7.2.assemblyattributes.obj
+c:\users\nien\desktop\project2\project2\x64\release\togglebtns.obj
 c:\users\nien\desktop\project2\project2\x64\release\successfulnotification.obj
+c:\users\nien\desktop\project2\project2\x64\release\statemanagement.obj
 c:\users\nien\desktop\project2\project2\x64\release\receipt.obj
 c:\users\nien\desktop\project2\project2\x64\release\pizzamenu.obj
 c:\users\nien\desktop\project2\project2\x64\release\pizza.obj
@@ -8,10 +10,8 @@ c:\users\nien\desktop\project2\project2\x64\release\myform.obj
 c:\users\nien\desktop\project2\project2\x64\release\menu1.obj
 c:\users\nien\desktop\project2\project2\x64\release\description.obj
 c:\users\nien\desktop\project2\project2\x64\release\data.obj
-c:\users\nien\desktop\project2\project2\x64\release\cart.obj
-c:\users\nien\desktop\project2\project2\x64\release\togglebtns.obj
-c:\users\nien\desktop\project2\project2\x64\release\statemanagement.obj
 c:\users\nien\desktop\project2\project2\x64\release\cartdata.obj
+c:\users\nien\desktop\project2\project2\x64\release\cart.obj
 c:\users\nien\desktop\project2\x64\release\project2.exe
 c:\users\nien\desktop\project2\x64\release\project2.pdb
 c:\users\nien\desktop\project2\project2\x64\release\project2.description.resources
@@ -19,10 +19,9 @@ c:\users\nien\desktop\project2\project2\x64\release\project2.menu1.resources
 c:\users\nien\desktop\project2\project2\x64\release\project2.myform.resources
 c:\users\nien\desktop\project2\project2\x64\release\project2.pizzamenu.resources
 c:\users\nien\desktop\project2\project2\x64\release\project2.receipt.resources
-c:\users\nien\desktop\project2\project2\x64\release\project2.successfulnotification.resources
 c:\users\nien\desktop\project2\project2\x64\release\project2.statemanagement.resources
+c:\users\nien\desktop\project2\project2\x64\release\project2.successfulnotification.resources
 c:\users\nien\desktop\project2\project2\x64\release\project2.res
-c:\users\nien\desktop\project2\project2\x64\release\project2.vcxproj.assemblyreference.cache
 c:\users\nien\desktop\project2\project2\x64\release\project2.tlog\cl.command.1.tlog
 c:\users\nien\desktop\project2\project2\x64\release\project2.tlog\cl.read.1.tlog
 c:\users\nien\desktop\project2\project2\x64\release\project2.tlog\cl.write.1.tlog
